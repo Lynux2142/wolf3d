@@ -6,7 +6,7 @@
 #    By: lguiller <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 11:15:29 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/28 16:37:04 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/28 16:50:11 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ all: $(NAME)
 $(NAME): compil
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "\033[33mbuilding - \033[32mlibmlx"
+	@echo "Done.\033[0m"
 
 compil:
 	@gcc $(FLAGS) -c $(SRC)
