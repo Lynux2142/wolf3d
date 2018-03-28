@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:16:31 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/28 17:19:17 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/03/28 17:57:02 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int		main(int ac, char **av)
 {
 	(void)ac;
-	(void)av;
-	return (42);
+	ft_read_file(av[1]);
+	return (0);
 }
