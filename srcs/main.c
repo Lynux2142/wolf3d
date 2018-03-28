@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/28 16:48:44 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/28 17:08:23 by lguiller         ###   ########.fr       */
+/*   Created: 2018/03/28 17:16:31 by lguiller          #+#    #+#             */
+/*   Updated: 2018/03/28 17:19:17 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-int		main(void)
+int		main(int ac, char **av)
 {
-	test();
+	(void)ac;
+	(void)av;
+	return (42);
 }
