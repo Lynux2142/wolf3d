@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/29 12:31:21 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/29 12:41:50 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ##################
 
 NAME		= wolf3d
-SRCS1		= main.c stock.c free_funct.c
+SRCS1		= main.c stock.c free_funct.c check_map.c
 SRCS		= $(addprefix $(SRCS_DIR), $(SRCS1))
 OBJS		= $(addprefix $(OBJS_DIR), $(SRCS1:.c=.o))
 SRCS_DIR	= srcs/
