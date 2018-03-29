@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/29 11:57:25 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/29 12:31:21 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ _CUT		= "\033[k"
 all: title libft minilibx $(NAME)
 
 create_dir:
-	@./check_dir.sh $(OBJS_DIR)
+	@./.check_dir.sh $(OBJS_DIR)
 
 libft:
 	@make -C libft
