@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/28 18:09:39 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/03/29 11:32:45 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 
-void		ft_read_file(char *name);
+void		ft_read_file(char *name, char ***map);
+void		ft_free_map(char **map);
 
 #endif

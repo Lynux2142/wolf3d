@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/29 10:12:19 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/29 11:57:25 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ##################
 
 NAME		= wolf3d
-SRCS1		= main.c stock.c
+SRCS1		= main.c stock.c free_funct.c
 SRCS		= $(addprefix $(SRCS_DIR), $(SRCS1))
 OBJS		= $(addprefix $(OBJS_DIR), $(SRCS1:.c=.o))
 SRCS_DIR	= srcs/
@@ -23,7 +23,7 @@ OBJS_DIR	= objs/
 INC			= includes/
 LIBFT		= libft/libft.a
 MINILIBX	= minilibx/libmlx.a
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 FRAMEWORK	= -framework OpenGL -framework Appkit
 
 ##################
@@ -39,7 +39,7 @@ _VIOLET		= "\033[35m"
 _CYAN		= "\033[36m"
 _WHITE		= "\033[37m"
 _END		= "\033[0m"
-G_CLEAR		= "\033[2K"
+_CLEAR		= "\033[2K"
 _HIDE_CURS	= "\033[?25l"
 _SHOW_CURS	= "\033[?25h"
 _UP			= "\033[A"
@@ -72,7 +72,8 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	@gcc $(FLAGS) -I $(INC) -c $^ -o $@
 	@printf $(_HIDE_CURS)$(_CLEAR)$(_YELLOW)"building - "$(_GREEN)
 	@printf $@ | cut -c6- | cut -d'.' -f1
-	@printf $(_UP)$(_CUT)$(_END)
+	@printf $(_END)
+	@printf $(_UP)$(_CUT)
 
 clean:
 	@make -C libft clean

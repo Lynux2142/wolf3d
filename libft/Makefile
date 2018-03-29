@@ -6,7 +6,7 @@
 #    By: lguiller <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 11:15:29 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/29 09:28:02 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/29 11:54:11 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c 
 		  ft_atoi_base.c ft_power.c ft_split_whitespaces.c ft_error.c \
 		  ft_putendl_error.c
 OBJ		= $(SRC:.c=.o)
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g
 
 ##################
 ##    COLORS    ##
@@ -72,7 +72,9 @@ $(NAME): $(OBJ)
 
 %.o: %.c
 	@gcc $(FLAGS) -c $^ -o $@
-	@echo $(_HIDE_CURS)$(_CLEAR)$(_YELLOW)"building - "$(_GREEN)$@$(_END)
+	@printf $(_HIDE_CURS)$(_CLEAR)$(_YELLOW)"building - "$(_GREEN)
+	@printf $@ | cut -d'.' -f1
+	@printf $(_END)
 	@printf $(_UP)$(_CUT)
 
 clean:
