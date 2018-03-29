@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/28 17:46:03 by lguiller         ###   ########.fr        #
+#    Updated: 2018/03/29 10:12:19 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ _VIOLET		= "\033[35m"
 _CYAN		= "\033[36m"
 _WHITE		= "\033[37m"
 _END		= "\033[0m"
-_CLEAR		= "\033[2K"
+G_CLEAR		= "\033[2K"
 _HIDE_CURS	= "\033[?25l"
 _SHOW_CURS	= "\033[?25h"
 _UP			= "\033[A"
@@ -49,9 +49,12 @@ _CUT		= "\033[k"
 ##   TARGETS    ##
 ##################
 
-.PHONY: all title libft minilibx clean fclean re
+.PHONY: all title libft minilibx create_dir clean fclean re
 
 all: title libft minilibx $(NAME)
+
+create_dir:
+	@./check_dir.sh $(OBJS_DIR)
 
 libft:
 	@make -C libft
@@ -59,7 +62,7 @@ libft:
 minilibx:
 	@make -C minilibx
 
-$(NAME): $(OBJS)
+$(NAME): create_dir $(OBJS)
 	@gcc $(FLAGS) $(FRAMEWORK) $(MINILIBX) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo $(_CLEAR)$(_YELLOW)"building - "$(_GREEN)"wolf3d"$(_END)
 	@echo $(_GREEN)"Done."$(_END)$(_SHOW_CURS)
