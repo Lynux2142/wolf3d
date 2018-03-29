@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:16:27 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/28 18:00:44 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/03/29 09:27:36 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void				ft_putnbr_base(int nb, char *base);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
+void				ft_putendl_error(char const *s);
 void				ft_putnbr_fd(int n, int fd);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
@@ -124,6 +125,6 @@ int					get_next_line(int fd, char **line);
 char				**ft_split_whitespaces(const char *s);
 void				print_memory(const void *addr, size_t size);
 
-void				ft_error(char *str, int error);
+void				ft_error(char *str, int error, void (*f)(const char *));
 
 #endif

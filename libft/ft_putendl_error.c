@@ -6,14 +6,14 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 13:39:34 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/29 09:16:29 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/03/29 09:29:32 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(const char *s)
+void	ft_putendl_error(const char *s)
 {
 	if (s != NULL)
-		ft_putendl_fd(s, 1);
+		ft_putendl_fd(s, 2);
 }

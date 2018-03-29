@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:34:45 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/28 18:19:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/03/29 09:19:21 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	ft_read_file(char *name)
 	char	**map;
 	int		i;
 
-	errno = 0;
 	if ((fd = open(name, O_RDONLY)) == -1)
-		ft_error("error", 1);
+		ft_error("error", 1, perror);
 	if (!(map = (char **)ft_memalloc(sizeof(char *) * BUFF_SIZE)))
 		return ;
 	i = -1;
@@ -38,5 +37,4 @@ void	ft_read_file(char *name)
 		ft_memdel((void **)&map[i]);
 	ft_memdel((void **)&map);
 	close(fd);
-	while (1);
 }
