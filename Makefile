@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/29 16:09:56 by lguiller          #+#    #+#              #
-#    Updated: 2018/03/29 16:09:59 by lguiller         ###   ########.fr        #
+#    Updated: 2018/04/10 10:06:55 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,26 @@
 ##  VARIABLES   ##
 ##################
 
+OPE_SYS		= $(shell uname)
 NAME		= wolf3d
 SRCS1		= main.c stock.c free_funct.c check_map.c
 SRCS		= $(addprefix $(SRCS_DIR), $(SRCS1))
 OBJS		= $(addprefix $(OBJS_DIR), $(SRCS1:.c=.o))
+MINILIBX	= $(MLX_DIR)/libmlx.a
+LIBFT		= libft/libft.a
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
-INC			= includes/
-LIBFT		= libft/libft.a
-MINILIBX	= minilibx/libmlx.a
-FLAGS		= -Wall -Wextra -Werror -g
-FRAMEWORK	= -framework OpenGL -framework Appkit
+FLAGS		= -Wall -Wextra -Werror -O2
+
+ifeq ($(OPE_SYS), Linux)
+	INCLUDES	= -I includes -I libft -I minilibx -I /usr/include
+	MLX_DIR		= minilibx_X11
+	FRAMEWORK	= -L$(MLX_DIR) -lmlx -L/usr/lib -lxext -lX11 -lm
+else
+	INCLUDES	= -I includes -I libft -I minilibx -I /usr/include
+	MLX_DIR		= minilibx
+	FRAMEWORK	= -framework OpenGL -framework Appkit
+endif
 
 ##################
 ##    COLORS    ##
@@ -60,16 +69,16 @@ libft:
 	@make -C libft
 
 minilibx:
-	@make -C minilibx
+	@make -C $(MLX_DIR)
 
 $(NAME): create_dir $(OBJS)
-	@gcc $(FLAGS) $(FRAMEWORK) $(MINILIBX) $(OBJS) $(LIBFT) -o $(NAME)
+	@gcc $(FLAGS) $(OBJS) $(LIBFT) $(FRAMEWORK) $(MINILIBX) -o $(NAME)
 	@echo $(_CLEAR)$(_YELLOW)"building - "$(_GREEN)"wolf3d"$(_END)
 	@echo $(_GREEN)"Done."$(_END)$(_SHOW_CURS)
 
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-	@gcc $(FLAGS) -I $(INC) -c $^ -o $@
+	@gcc $(FLAGS) $(INCLUDES) -c $^ -o $@
 	@printf $(_HIDE_CURS)$(_CLEAR)$(_YELLOW)"building - "$(_GREEN)
 	@printf $@ | cut -c6- | cut -d'.' -f1
 	@printf $(_END)
@@ -77,7 +86,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 
 clean:
 	@make -C libft clean
-	@make -C minilibx clean
+	@make -C $(MLX_DIR) clean
 	@/bin/rm -f $(OBJS)
 
 fclean: clean
