@@ -28,7 +28,7 @@ FLAGS		= -Wall -Wextra -Werror -O2
 ifeq ($(OPE_SYS), Linux)
 	INCLUDES	= -I includes -I libft -I minilibx -I /usr/include
 	MLX_DIR		= minilibx_X11
-	FRAMEWORK	= -L$(MLX_DIR) -lmlx -L/usr/lib -lxext -lX11 -lm
+	FRAMEWORK	= -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11 -lm
 else
 	INCLUDES	= -I includes -I libft -I minilibx -I /usr/include
 	MLX_DIR		= minilibx
