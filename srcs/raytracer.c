@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_segment_tracer.c                                :+:      :+:    :+:   */
+/*   raytracer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:28:36 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/04/26 11:05:06 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 13:54:35 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-static void	ft_fill_line(t_algo_brez algo, t_mlx *mlx, int col)
+static void	ft_fill_line(t_algo_brez algo, t_img *ptr, int col)
 {
 	algo.cumul = algo.da / 2;
 	while (algo.i <= algo.da)
@@ -24,12 +24,12 @@ static void	ft_fill_line(t_algo_brez algo, t_mlx *mlx, int col)
 			algo.cumul -= algo.da;
 			algo.b += algo.cptb;
 		}
-		ft_fill_pixel(mlx, algo.a, algo.b, col);
+		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
 	}
 }
 
-static void	ft_fill_column(t_algo_brez algo, t_mlx *mlx, int col)
+static void	ft_fill_column(t_algo_brez algo, t_img *ptr, int col)
 {
 	algo.cumul = algo.db / 2;
 	while (algo.i <= algo.db)
@@ -41,12 +41,12 @@ static void	ft_fill_column(t_algo_brez algo, t_mlx *mlx, int col)
 			algo.cumul -= algo.db;
 			algo.a += algo.cpta;
 		}
-		ft_fill_pixel(mlx, algo.a, algo.b, col);
+		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
 	}
 }
 
-void		ft_algo(t_mlx *mlx, t_ray ray, t_player p, int col)
+void		ft_algo(t_img *ptr, t_ray ray, t_player p, int col)
 {
 	t_algo_brez	algo;
 
@@ -59,9 +59,9 @@ void		ft_algo(t_mlx *mlx, t_ray ray, t_player p, int col)
 	algo.da = ft_abs(algo.da);
 	algo.db = ft_abs(algo.db);
 	algo.i = 1;
-	ft_fill_pixel(mlx, algo.a, algo.b, col);
+	ft_fill_pixel(ptr, algo.a, algo.b, col);
 	if (algo.da > algo.db)
-		ft_fill_line(algo, mlx, col);
+		ft_fill_line(algo, ptr, col);
 	else
-		ft_fill_column(algo, mlx, col);
+		ft_fill_column(algo, ptr, col);
 }

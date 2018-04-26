@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 10:39:47 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 14:04:28 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,23 +84,25 @@ typedef struct	s_raycast
 	t_ray		r_hori;
 	t_ray		r_vert;
 	t_ray		ray;
-	double		cam_x;
-	double		l;
 	double		dist;
 	char		**map;
-	int			wall_dir;
-	int			hit;
 }				t_raycast;
+
+typedef struct	s_img
+{
+	void		*img;
+	char		*data;
+	int			sl;
+	int			endian;
+	int			bpp;
+}				t_img;
 
 typedef struct	s_mlx
 {
 	void		*mlx;
 	void		*win;
-	void		*img;
-	char		*data;
-	int			sizeline;
-	int			endian;
-	int			bpp;
+	t_img		info;
+	t_img		fp;
 }				t_mlx;
 
 typedef struct s_algo_brez
@@ -120,8 +122,10 @@ void			ft_check_map(char *buff, char *start);
 void			ft_read_file(char *name, char ***map);
 void			ft_free_map(char **map);
 void			ft_draw(t_raycast rc, t_ray ray, t_player p);
-void			ft_fill_pixel(t_mlx *ptr, int x, int y, int col);
-void			ft_algo(t_mlx *mlx, t_ray ray, t_player p, int col);
+void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
+void			ft_algo(t_img *ptr, t_ray ray, t_player p, int col);
 void			ft_wall_dist(t_raycast *rc, t_player *p);
+void			ft_print_map(t_img *ptr, char **map);
+int				ft_key_funct(int key, void *x);
 
 #endif

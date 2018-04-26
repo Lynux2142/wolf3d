@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/04/25 15:02:04 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/04/26 13:27:23 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,9 @@
 
 OPE_SYS			= $(shell uname)
 NAME			= wolf3d
-SRCS1			= main.c stock.c free_funct.c check_map.c print_map.c init.c \
-					raycasting.c ft_segment_tracer.c
+SRCS1			= main.c stock.c free_funct.c check_map.c minimap.c init.c \
+					raycasting.c raytracer.c print_env.c display.c \
+					keyboard.c
 SRCS			= $(addprefix $(SRCS_DIR), $(SRCS1))
 OBJS			= $(addprefix $(OBJS_DIR), $(SRCS1:.c=.o))
 SRCS_DIR		= srcs/
