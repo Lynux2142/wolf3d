@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 15:35:16 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 15:51:09 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 # define FOV			60.0
 # define TO_RAD(x)		x * M_PI / 180.0
 # define TO_DEG(x)		x / (M_PI / 180.0)
-# define SCRN_RANGE		((double)SCRNX / 2.0) / tan(TO_RAD(FOV / 2.0))
 # define RAY_ANGLE		FOV / (double)SCRNX
 # define WALL			'1'
 # define FLOOR			' '
