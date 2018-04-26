@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 14:04:28 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 15:35:16 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 
 # define MAPX			32
 # define MAPY			32
-# define WINX			960
-# define WINY			600
+# define INFOX			256
+# define INFOY			WINY
+# define FPX			960
+# define FPY			600
+# define WINX			FPX + INFOX
+# define WINY			FPY
 # define SCRNX			320
 # define SCRNY			200
 # define BLOCK_SIZE		64.0
@@ -34,6 +38,7 @@
 # define WALL			'1'
 # define FLOOR			' '
 # define TO_MAP(x)		(int)x / 64
+# define WALL_COLOR		0x888800
 
 # ifdef __linux__
 #  define ESC			65307
@@ -127,5 +132,6 @@ void			ft_algo(t_img *ptr, t_ray ray, t_player p, int col);
 void			ft_wall_dist(t_raycast *rc, t_player *p);
 void			ft_print_map(t_img *ptr, char **map);
 int				ft_key_funct(int key, void *x);
+void			ft_print_on_screen(t_raycast rc, t_img *fp, int x);
 
 #endif

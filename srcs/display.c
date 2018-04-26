@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 14:04:39 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 15:35:56 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,22 @@ void		ft_draw(t_raycast rc, t_ray ray, t_player p)
 {
 	t_mlx	ptr;
 	t_img	*info;
+	t_img	*fp;
 
 	info = &ptr.info;
+	fp = &ptr.fp;
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, WINX, WINY, "wolf3d");
-	info->img = mlx_new_image(ptr.mlx, WINX, WINY);
+	info->img = mlx_new_image(ptr.mlx, INFOX, INFOY);
+	fp->img = mlx_new_image(ptr.mlx, FPX, FPY);
 	info->data = mlx_get_data_addr(info->img, &info->bpp, &info->sl,
 		&info->endian);
+	fp->data = mlx_get_data_addr(fp->img, &fp->bpp, &fp->sl, &fp->endian);
 	ft_print_map(info, rc.map);
 	ft_algo(info, ray, p, 0xFF0000);
-	
+	ft_print_on_screen(rc, fp, 480);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, info->img, 0, 0);
+	mlx_put_image_to_window(ptr.mlx, ptr.win, fp->img, INFOX + 1, 0);
 	mlx_hook(ptr.win, 2, (1L << 0), ft_key_funct, 0);
 	mlx_loop(ptr.mlx);
 }
