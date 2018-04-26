@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 12:58:08 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 18:00:26 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char **map)
 	ray->fy = p->y + (p->x - ray->fx) * tan(p->a);
 	ray->xa = (p->a <= (3.0 * M_PI / 2.0) && p->a >= (M_PI / 2.0)) ?
 		-BLOCK_SIZE : BLOCK_SIZE;
-	ray->ya = ((int)tan(p->a) == INT_MIN) ?
-		32 * BLOCK_SIZE : -ray->xa * tan(p->a);
+	ray->ya = -ray->xa * tan(p->a);
 	ft_dist(map, ray, p);
 }
 
@@ -70,6 +69,13 @@ void		ft_wall_dist(t_raycast *rc, t_player *p)
 	ft_fp_vert(&rc->r_vert, p, rc->map);
 	dist_hori = sqrt(ft_fpow(rc->r_hori.dx, 2) + ft_fpow(rc->r_hori.dy, 2));
 	dist_vert = sqrt(ft_fpow(rc->r_vert.dx, 2) + ft_fpow(rc->r_vert.dy, 2));
-	rc->dist = (dist_hori <= dist_vert) ? dist_hori : dist_vert;
+	if (!(dist_vert == dist_vert) || !(dist_hori == dist_hori))
+		printf("%f - %f\n", dist_hori, dist_vert);
+	if (dist_hori != dist_hori)
+		rc->dist = dist_vert;
+	else if (dist_vert != dist_vert)
+		rc->dist = dist_hori;
+	else
+		rc->dist = (dist_hori <= dist_vert) ? dist_hori : dist_vert;
 	rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;
 }

@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 15:51:09 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/26 17:10:06 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,16 @@
 # define FPY			600
 # define WINX			FPX + INFOX
 # define WINY			FPY
-# define SCRNX			320
-# define SCRNY			200
 # define BLOCK_SIZE		64.0
 # define CAM_HEIGHT		BLOCK_SIZE / 2
 # define FOV			60.0
 # define TO_RAD(x)		x * M_PI / 180.0
 # define TO_DEG(x)		x / (M_PI / 180.0)
-# define RAY_ANGLE		FOV / (double)SCRNX
+# define RAY_ANGLE		FOV / (double)FPX
 # define WALL			'1'
 # define FLOOR			' '
 # define TO_MAP(x)		(int)x / 64
-# define WALL_COLOR		0x888800
+# define WALL_COLOR		0xFFFF00
 
 # ifdef __linux__
 #  define ESC			65307
@@ -125,12 +123,12 @@ void			ft_init_player(char **map, t_player *p);
 void			ft_check_map(char *buff, char *start);
 void			ft_read_file(char *name, char ***map);
 void			ft_free_map(char **map);
-void			ft_draw(t_raycast rc, t_ray ray, t_player p);
+void			ft_draw(t_raycast *rc, t_player *p);
 void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
-void			ft_algo(t_img *ptr, t_ray ray, t_player p, int col);
+void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_raycast *rc, t_player *p);
 void			ft_print_map(t_img *ptr, char **map);
 int				ft_key_funct(int key, void *x);
-void			ft_print_on_screen(t_raycast rc, t_img *fp, int x);
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 15:35:56 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 18:00:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,21 @@ void		ft_fill_pixel(t_img *ptr, int x, int y, int col)
 	}
 }
 
-void		ft_draw(t_raycast rc, t_ray ray, t_player p)
+static void	ft_full_print(t_raycast *rc, t_player *p, t_img *fp)
+{
+	int			i;
+
+	p->a += TO_RAD(30.0);
+	i = -1;
+	while (++i < FPX)
+	{
+		ft_wall_dist(rc, p);
+		ft_print_on_screen(rc, fp, i);
+		p->a -= TO_RAD(RAY_ANGLE);
+	}
+}
+
+void		ft_draw(t_raycast *rc, t_player *p)
 {
 	t_mlx	ptr;
 	t_img	*info;
@@ -45,9 +59,9 @@ void		ft_draw(t_raycast rc, t_ray ray, t_player p)
 	info->data = mlx_get_data_addr(info->img, &info->bpp, &info->sl,
 		&info->endian);
 	fp->data = mlx_get_data_addr(fp->img, &fp->bpp, &fp->sl, &fp->endian);
-	ft_print_map(info, rc.map);
-	ft_algo(info, ray, p, 0xFF0000);
-	ft_print_on_screen(rc, fp, 480);
+	ft_full_print(rc, p, fp);
+	ft_print_map(info, rc->map);
+	ft_algo(info, rc->ray, p, 0xFF0000);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, info->img, 0, 0);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, fp->img, INFOX + 1, 0);
 	mlx_hook(ptr.win, 2, (1L << 0), ft_key_funct, 0);

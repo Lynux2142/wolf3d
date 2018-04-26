@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:28:36 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/04/26 13:54:35 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/04/26 16:36:21 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static void	ft_fill_column(t_algo_brez algo, t_img *ptr, int col)
 	}
 }
 
-void		ft_algo(t_img *ptr, t_ray ray, t_player p, int col)
+void		ft_algo(t_img *ptr, t_ray ray, t_player *p, int col)
 {
 	t_algo_brez	algo;
 
-	algo.a = (int)(p.x / 8.0);
-	algo.b = (int)(p.y / 8.0);
-	algo.da = (int)((ray.x - p.x) / 8.0);
-	algo.db = (int)((ray.y - p.y) / 8.0);
+	algo.a = (int)(p->x / 8.0);
+	algo.b = (int)(p->y / 8.0);
+	algo.da = (int)((ray.x - p->x) / 8.0);
+	algo.db = (int)((ray.y - p->y) / 8.0);
 	algo.cpta = (algo.da > 0) ? 1 : -1;
 	algo.cptb = (algo.db > 0) ? 1 : -1;
 	algo.da = ft_abs(algo.da);
