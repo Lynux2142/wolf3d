@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 15:30:00 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 17:54:53 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,21 @@
 # define WEST			M_PI
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
+# define SPEED			5.0
 
 # ifdef __linux__
 #  define ESC			65307
 
 #  define KEY_A			0
 #  define KEY_D			2
+#  define KEY_W			13
+#  define KEY_S			1
 # else
 #  define ESC			53
 #  define KEY_A			0
 #  define KEY_D			2
+#  define KEY_W			13
+#  define KEY_S			1
 # endif
 
 typedef struct	s_coord

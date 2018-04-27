@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raytracer.c                                        :+:      :+:    :+:   */
+/*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:28:36 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/04/27 13:24:52 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 17:48:56 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	ft_fill_line(t_algo_brez algo, t_img *ptr, int col)
 			algo.cumul -= algo.da;
 			algo.b += algo.cptb;
 		}
+		if (col != 0)
+			col -= 0x050500;
 		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
 	}
@@ -41,6 +43,8 @@ static void	ft_fill_column(t_algo_brez algo, t_img *ptr, int col)
 			algo.cumul -= algo.db;
 			algo.a += algo.cpta;
 		}
+		if (col != 0)
+			col -= 0x050500;
 		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
 	}
