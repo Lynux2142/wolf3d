@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 18:00:57 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 10:22:09 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		ft_draw(t_raycast *rc, t_player *p)
 	fp->data = mlx_get_data_addr(fp->img, &fp->bpp, &fp->sl, &fp->endian);
 	ft_full_print(rc, p, fp);
 	ft_print_map(info, rc->map);
-	ft_algo(info, rc->ray, p, 0xFF0000);
+	ft_algo(info, rc->ray, p, RED);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, info->img, 0, 0);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, fp->img, INFOX + 1, 0);
 	mlx_hook(ptr.win, 2, (1L << 0), ft_key_funct, 0);

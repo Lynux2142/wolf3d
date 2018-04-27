@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 18:00:26 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 10:19:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,28 @@ static void	ft_dist(char **map, t_ray *ray, t_player *p)
 
 static void	ft_fp_hori(t_ray *ray, t_player *p, char **map)
 {
-	if (p->a == M_PI || p->a == 0.0 || p->a == (2.0 * M_PI))
+	if (p->a == WEST || p->a == EAST || p->a == EAST2)
 		ray->fy = p->y;
-	else if ((p->a < M_PI && p->a > 0.0))
+	else if ((sin(p->a) * BLOCK_SIZE) >= 0)
 		ray->fy = (double)(ft_roundminf((int)p->y, (int)BLOCK_SIZE) - 1);
 	else
 		ray->fy = (double)(ft_roundmsup((int)p->y, (int)BLOCK_SIZE) + 1);
 	ray->fx = p->x + (p->y - ray->fy) / tan(p->a);
-	ray->ya = (p->a <= M_PI || p->a == (2.0 * M_PI)) ? -BLOCK_SIZE : BLOCK_SIZE;
+	ray->ya = ((sin(p->a) * BLOCK_SIZE) >= 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->xa = -ray->ya / tan(p->a);
 	ft_dist(map, ray, p);
 }
 
 static void	ft_fp_vert(t_ray *ray, t_player *p, char **map)
 {
-	if (p->a == (M_PI / 2.0) || p->a == (3.0 * M_PI / 2.0))
+	if (p->a == NORTH || p->a == SOUTH)
 		ray->fx = p->x;
-	else if (p->a < (3.0 * M_PI / 2.0) && p->a > (M_PI / 2.0))
+	else if ((cos(p->a) * BLOCK_SIZE) < 0)
 		ray->fx = (double)(ft_roundminf((int)p->x, (int)BLOCK_SIZE) - 1.0);
 	else
 		ray->fx = (double)(ft_roundmsup((int)p->x, (int)BLOCK_SIZE) + 1.0);
 	ray->fy = p->y + (p->x - ray->fx) * tan(p->a);
-	ray->xa = (p->a <= (3.0 * M_PI / 2.0) && p->a >= (M_PI / 2.0)) ?
+	ray->xa = ((cos(p->a) * BLOCK_SIZE) < 0) ?
 		-BLOCK_SIZE : BLOCK_SIZE;
 	ray->ya = -ray->xa * tan(p->a);
 	ft_dist(map, ray, p);
@@ -69,12 +69,8 @@ void		ft_wall_dist(t_raycast *rc, t_player *p)
 	ft_fp_vert(&rc->r_vert, p, rc->map);
 	dist_hori = sqrt(ft_fpow(rc->r_hori.dx, 2) + ft_fpow(rc->r_hori.dy, 2));
 	dist_vert = sqrt(ft_fpow(rc->r_vert.dx, 2) + ft_fpow(rc->r_vert.dy, 2));
-	if (!(dist_vert == dist_vert) || !(dist_hori == dist_hori))
-		printf("%f - %f\n", dist_hori, dist_vert);
-	if (dist_hori != dist_hori)
-		rc->dist = dist_vert;
-	else if (dist_vert != dist_vert)
-		rc->dist = dist_hori;
+	if (dist_hori != dist_hori || dist_vert != dist_vert)
+		rc->dist = (dist_hori != dist_hori) ? dist_vert : dist_hori;
 	else
 		rc->dist = (dist_hori <= dist_vert) ? dist_hori : dist_vert;
 	rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;

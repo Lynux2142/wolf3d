@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/26 17:10:06 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 10:43:53 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,17 @@
 # define WALL			'1'
 # define FLOOR			' '
 # define TO_MAP(x)		(int)x / 64
-# define WALL_COLOR		0xFFFF00
+# define WHITE			0x0
+# define RED			0xFF0000
+# define GREEN			0xFF00
+# define BLUE			0x59809C
+# define GREY			0x613318
+# define YELLOW			0xCED02B
+# define NORTH			M_PI / 2.0
+# define SOUTH			3.0 * M_PI / 2.0
+# define WEST			M_PI
+# define EAST			0.0
+# define EAST2			2.0 * M_PI
 
 # ifdef __linux__
 #  define ESC			65307
