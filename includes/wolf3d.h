@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 14:49:31 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 15:30:00 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@
 # define WALL			'1'
 # define FLOOR			' '
 # define TO_MAP(x)		(int)x / 64
-# define WHITE			0x0
+# define BLACK			0x0
+# define WHITE			0xFFFFFF
 # define RED			0xFF0000
 # define GREEN			0xFF00
-# define BLUE			0x59809C
-# define GREY			0x613318
-# define YELLOW			0xCED02B
+# define BLUE			0xFF
+# define GREY			0xCCCCCC
+# define YELLOW			0xFFFF00
+# define TOP			0x59809C
+# define BOTTOM			0x613318
 # define NORTH			M_PI / 2.0
 # define SOUTH			3.0 * M_PI / 2.0
 # define WEST			M_PI

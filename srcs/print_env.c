@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/04/27 10:26:28 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 15:08:45 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x)
 	{
 		if (i > h)
 		{
-			ft_fill_pixel(fp, x, (WINY / 2) + i, GREY);
-			ft_fill_pixel(fp, x, (WINY / 2) - i, BLUE);
+			ft_fill_pixel(fp, x, (WINY / 2) + i, BOTTOM);
+			ft_fill_pixel(fp, x, (WINY / 2) - i, TOP);
 		}
 		else
 		{

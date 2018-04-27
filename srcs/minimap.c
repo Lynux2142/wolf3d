@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 14:25:56 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 15:31:42 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_print_map(t_img *ptr, char **map)
 		while (++x < BUFF_SIZE)
 		{
 			if (map[y][x] == '1' || map[y][x] == 's')
-				ft_rect(ptr, x, y, (map[y][x] == '1') ? 0xFFFFFF : 0xFF00);
+				ft_rect(ptr, x, y, (map[y][x] == '1') ? WHITE : GREEN);
 		}
 	}
 }
