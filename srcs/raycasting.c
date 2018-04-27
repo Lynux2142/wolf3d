@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 14:38:09 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 14:46:47 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
 		rc->ray = (dist_hori != dist_hori) ? rc->r_vert : rc->r_hori;
 	else
 		rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;
-	ft_algo(info, rc->ray, p, RED);
+	ft_algo(info, rc->ray, p, 0xCCCC00);
 }
