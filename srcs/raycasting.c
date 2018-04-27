@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 11:25:23 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 14:38:09 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,12 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
 	else
 		ray->fx = (double)(ft_roundmsup((int)p->x, (int)BLOCK_SIZE) + 1.0);
 	ray->fy = p->y + (p->x - ray->fx) * tan(a);
-	ray->xa = ((cos(a) * BLOCK_SIZE) < 0) ?
-		-BLOCK_SIZE : BLOCK_SIZE;
+	ray->xa = ((cos(a) * BLOCK_SIZE) < 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->ya = -ray->xa * tan(a);
 	ft_dist(map, ray, p);
 }
 
-void		ft_wall_dist(t_raycast *rc, t_player *p, double a)
+void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
 {
 	double	dist_hori;
 	double	dist_vert;
@@ -73,5 +72,9 @@ void		ft_wall_dist(t_raycast *rc, t_player *p, double a)
 		rc->dist = (dist_hori != dist_hori) ? dist_vert : dist_hori;
 	else
 		rc->dist = (dist_hori <= dist_vert) ? dist_hori : dist_vert;
-	rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;
+	if (dist_hori != dist_hori || dist_vert != dist_vert)
+		rc->ray = (dist_hori != dist_hori) ? rc->r_vert : rc->r_hori;
+	else
+		rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;
+	ft_algo(info, rc->ray, p, RED);
 }

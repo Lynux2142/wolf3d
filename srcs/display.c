@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 11:35:11 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 13:04:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ void		ft_fill_pixel(t_img *ptr, int x, int y, int col)
 	}
 }
 
-void		ft_print_all(t_raycast *rc, t_player *p, t_img *fp)
+void		ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp)
 {
 	int			i;
 	double		a;
 
+	ft_print_map(info, rc->map);
 	a = p->a + TO_RAD(30.0);
 	i = -1;
 	while (++i < FPX)
 	{
-		ft_wall_dist(rc, p, a);
+		ft_wall_dist(info, rc, p, a);
 		ft_print_on_screen(rc, fp, i);
 		a -= TO_RAD(RAY_ANGLE);
 	}
@@ -67,9 +68,7 @@ void		ft_draw(t_raycast *rc, t_player *p)
 	all.ptr = ptr;
 	all.info = info;
 	mlx_hook(ptr.win, 2, (1L << 0), ft_key_funct, &all);
-	ft_print_all(rc, p, fp);
-	ft_print_map(info, rc->map);
-	ft_algo(info, rc->ray, p, RED);
+	ft_print_all(info, rc, p, fp);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, info->img, 0, 0);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, fp->img, INFOX + 1, 0);
 	mlx_loop(ptr.mlx);

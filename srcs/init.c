@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 11:31:34 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/04/27 14:04:52 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_init_player(char **map, t_player *p)
 					+ ((double)BLOCK_SIZE / 2.0);
 				p->y = (double)y * (double)BLOCK_SIZE
 					+ ((double)BLOCK_SIZE / 2.0);
-				p->a = TO_RAD(0.0);
+				p->a = TO_RAD(90.0);
 				break ;
 			}
 		}
