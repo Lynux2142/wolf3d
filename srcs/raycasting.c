@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 18:09:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 09:07:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_fp_hori(t_ray *ray, t_player *p, char **map, double a)
 	if (a == WEST || a == EAST || a == EAST2)
 		ray->fy = p->y;
 	else if ((sin(a) * BLOCK_SIZE) >= 0)
-		ray->fy = (double)(ft_roundminf((int)p->y, (int)BLOCK_SIZE) - 1) + 0.9;
+		ray->fy = (double)(ft_roundminf((int)p->y, (int)BLOCK_SIZE) - 1) + 0.99;
 	else
 		ray->fy = (double)(ft_roundmsup((int)p->y, (int)BLOCK_SIZE));
 	ray->fx = p->x + (p->y - ray->fy) / tan(a);
@@ -50,7 +50,7 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
 	if (a == NORTH || a == SOUTH)
 		ray->fx = p->x;
 	else if ((cos(a) * BLOCK_SIZE) < 0)
-		ray->fx = (double)(ft_roundminf((int)p->x, (int)BLOCK_SIZE) - 1) + 0.9;
+		ray->fx = (double)(ft_roundminf((int)p->x, (int)BLOCK_SIZE) - 1) + 0.99;
 	else
 		ray->fx = (double)(ft_roundmsup((int)p->x, (int)BLOCK_SIZE));
 	ray->fy = p->y + (p->x - ray->fx) * tan(a);
