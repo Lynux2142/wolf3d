@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:16:31 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 11:31:10 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 11:53:37 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,14 @@ static void	ft_malloc_map(char ***map)
 
 int			main(int ac, char **av)
 {
-	t_player		p;
-	t_raycast		rc;
+	t_all		all;
 
 	if (ac != 2)
 		ft_error("usage: ./wolf3d [map_name]", 1, ft_putendl);
-	ft_malloc_map(&rc.map);
-	ft_read_file(av[1], &rc.map);
-	ft_init_player(rc.map, &p);
-	ft_draw(&rc, &p);
-	ft_free_map(rc.map);
+	ft_malloc_map(&all.rc.map);
+	ft_read_file(av[1], &all.rc.map);
+	ft_init_player(all.rc.map, &all.p);
+	ft_draw(all);
+	ft_free_map(all.rc.map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/27 17:56:12 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 12:03:37 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,19 @@ void		ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp)
 	ft_print_map(info, rc->map);
 }
 
-void		ft_draw(t_raycast *rc, t_player *p)
+void		ft_draw(t_all all)
 {
-	t_mlx	ptr;
-	t_img	*info;
-	t_img	*fp;
-	t_all	all;
-
-	info = &ptr.info;
-	fp = &ptr.fp;
-	ptr.mlx = mlx_init();
-	ptr.win = mlx_new_window(ptr.mlx, WINX, WINY, "wolf3d");
-	info->img = mlx_new_image(ptr.mlx, INFOX, INFOY);
-	fp->img = mlx_new_image(ptr.mlx, FPX, FPY);
-	info->data = mlx_get_data_addr(info->img, &info->bpp, &info->sl,
-		&info->endian);
-	fp->data = mlx_get_data_addr(fp->img, &fp->bpp, &fp->sl, &fp->endian);
-	all.rc = rc;
-	all.p = p;
-	all.fp = fp;
-	all.ptr = ptr;
-	all.info = info;
-	mlx_hook(ptr.win, 2, (1L << 0), ft_key_funct, &all);
-	ft_print_all(info, rc, p, fp);
-	mlx_put_image_to_window(ptr.mlx, ptr.win, info->img, 0, 0);
-	mlx_put_image_to_window(ptr.mlx, ptr.win, fp->img, INFOX + 1, 0);
-	mlx_loop(ptr.mlx);
+	all.ptr.mlx = mlx_init();
+	all.ptr.win = mlx_new_window(all.ptr.mlx, WINX, WINY, "wolf3d");
+	all.info.img = mlx_new_image(all.ptr.mlx, INFOX, INFOY);
+	all.fp.img = mlx_new_image(all.ptr.mlx, FPX, FPY);
+	all.info.data = mlx_get_data_addr(all.info.img, &all.info.bpp, &all.info.sl,
+		&all.info.endian);
+	all.fp.data = mlx_get_data_addr(all.fp.img, &all.fp.bpp, &all.fp.sl,
+		&all.fp.endian);
+	mlx_hook(all.ptr.win, 2, (1L << 0), ft_key_funct, &all);
+	ft_print_all(&all.info, &all.rc, &all.p, &all.fp);
+	mlx_put_image_to_window(all.ptr.mlx, all.ptr.win, all.info.img, 0, 0);
+	mlx_put_image_to_window(all.ptr.mlx, all.ptr.win, all.fp.img, INFOX + 1, 0);
+	mlx_loop(all.ptr.mlx);
 }
