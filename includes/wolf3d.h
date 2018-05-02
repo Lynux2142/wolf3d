@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 11:52:47 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 14:29:38 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@
 # define WEST			M_PI
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
-# define SPEED			5.0
+# define SPEED			10.0
+# define HIT_BOX		20.0
 
 # ifdef __linux__
 #  define ESC			65307
