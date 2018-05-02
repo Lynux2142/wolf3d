@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 15:04:42 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/02 15:49:12 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ typedef struct	s_mlx
 	t_img		fp;
 }				t_mlx;
 
-typedef struct s_algo_brez
+typedef struct	s_algo_brez
 {
 	int			da;
 	int			db;
@@ -170,6 +170,6 @@ void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char **map);
 int				ft_key_funct(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, double a, int x);
-void			ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp);
+void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
 
 #endif

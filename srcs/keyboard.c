@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/02 14:40:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 15:44:59 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static void		ft_move(int key, t_all *all)
 int				ft_key_funct(int key, t_all *all)
 {
 	if (key == KEY_A)
-		all->p.a += TO_RAD(2.0);
+		all->p.a += TO_RAD(5.0);
 	if (key == KEY_D)
-		all->p.a -= TO_RAD(2.0);
+		all->p.a -= TO_RAD(5.0);
 	if (key == KEY_W || key == KEY_S)
 		ft_move(key, all);
 	if (key == ESC)
