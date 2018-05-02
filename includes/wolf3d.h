@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 14:29:38 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 15:04:42 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@
 # define YELLOW			0xFFFF00
 # define TOP			0x59809C
 # define BOTTOM			0x613318
+# define N_W			0xFF0000
+# define S_W			0x00FF00
+# define W_W			0x0000FF
+# define E_W			0xFFFF00
 # define NORTH			M_PI / 2.0
 # define SOUTH			3.0 * M_PI / 2.0
 # define WEST			M_PI
@@ -51,6 +55,8 @@
 # define EAST2			2.0 * M_PI
 # define SPEED			10.0
 # define HIT_BOX		20.0
+# define HORI			1
+# define VERT			2
 
 # ifdef __linux__
 #  define ESC			65307
@@ -103,6 +109,7 @@ typedef struct	s_ray
 	double		ya;
 	double		dx;
 	double		dy;
+	int			hit;
 }				t_ray;
 
 typedef struct	s_raycast
@@ -162,7 +169,7 @@ void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char **map);
 int				ft_key_funct(int key, t_all *all);
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x);
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, double a, int x);
 void			ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp);
 
 #endif

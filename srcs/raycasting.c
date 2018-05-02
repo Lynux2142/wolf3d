@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 09:07:57 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/02 14:51:57 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void	ft_fp_hori(t_ray *ray, t_player *p, char **map, double a)
 	ray->ya = ((sin(a) * BLOCK_SIZE) >= 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->xa = -ray->ya / tan(a);
 	ft_dist(map, ray, p);
+	ray->hit = HORI;
 }
 
 static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
@@ -57,6 +58,7 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
 	ray->xa = ((cos(a) * BLOCK_SIZE) < 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->ya = -ray->xa * tan(a);
 	ft_dist(map, ray, p);
+	ray->hit = VERT;
 }
 
 void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
