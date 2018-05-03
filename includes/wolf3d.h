@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 15:49:12 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/03 09:57:56 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@
 # ifdef __linux__
 #  define ESC			65307
 
-#  define KEY_A			0
-#  define KEY_D			2
-#  define KEY_W			13
-#  define KEY_S			1
+#  define KEY_A			97
+#  define KEY_D			100
+#  define KEY_W			119
+#  define KEY_S			115
 # else
 #  define ESC			53
 #  define KEY_A			0
