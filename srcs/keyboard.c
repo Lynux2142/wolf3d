@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/07 10:44:00 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/07 10:47:36 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,16 @@ static void		ft_moving_backward(t_all *all)
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
-static void		ft_move(int key, t_all *all)
-{
-	if (key == KEY_W)
-		ft_moving_forward(all);
-	if (key == KEY_S)
-		ft_moving_backward(all);
-}
-
 int				ft_key_funct(int key, t_all *all)
 {
 	if (key == KEY_A)
 		all->p.a += TO_RAD(5.0);
 	if (key == KEY_D)
 		all->p.a -= TO_RAD(5.0);
-	if (key == KEY_W || key == KEY_S)
-		ft_move(key, all);
+	if (key == KEY_W)
+		ft_moving_forward(all);
+	if (key == KEY_S)
+		ft_moving_backward(all);
 	if (key == ESC)
 		exit(0);
 	mlx_destroy_image(all->ptr.mlx, all->info.img);
