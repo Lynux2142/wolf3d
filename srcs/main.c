@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:16:31 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 11:53:37 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/07 15:06:14 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			main(int ac, char **av)
 	ft_malloc_map(&all.rc.map);
 	ft_read_file(av[1], &all.rc.map);
 	ft_init_player(all.rc.map, &all.p);
-	ft_draw(all);
+	ft_draw(all, av[1]);
 	ft_free_map(all.rc.map);
 	return (0);
 }

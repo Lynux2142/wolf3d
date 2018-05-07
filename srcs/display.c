@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 15:19:05 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/07 15:16:28 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ void		ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp)
 	ft_print_map(info, rc->map);
 }
 
-void		ft_draw(t_all all)
+void		ft_draw(t_all all, char *name)
 {
+	char	*title;
+
+	title = ft_strjoin("wolf3d - ", name + 5);
 	all.ptr.mlx = mlx_init();
-	all.ptr.win = mlx_new_window(all.ptr.mlx, WINX, WINY, "wolf3d");
+	all.ptr.win = mlx_new_window(all.ptr.mlx, WINX, WINY, title);
 	all.info.img = mlx_new_image(all.ptr.mlx, INFOX, INFOY);
 	all.fp.img = mlx_new_image(all.ptr.mlx, FPX, FPY);
 	all.info.data = mlx_get_data_addr(all.info.img, &all.info.bpp, &all.info.sl,

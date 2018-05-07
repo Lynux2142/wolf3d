@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/07 10:39:24 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/07 15:07:12 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ void			ft_init_player(char **map, t_player *p);
 void			ft_check_map(char *buff, char *start);
 void			ft_read_file(char *name, char ***map);
 void			ft_free_map(char **map);
-void			ft_draw(t_all all);
+void			ft_draw(t_all all, char *name);
 void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
