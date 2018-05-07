@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/03 09:57:56 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/07 10:21:49 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@
 # define TO_RAD(x)		x * M_PI / 180.0
 # define TO_DEG(x)		x / (M_PI / 180.0)
 # define RAY_ANGLE		FOV / (double)FPX
-# define WALL			'1'
+# define START			's'
 # define FLOOR			' '
+# define WALL			'1'
+# define SECRET			'2'
 # define TO_MAP(x)		(int)x / 64
 # define BLACK			0x0
 # define WHITE			0xFFFFFF
@@ -45,8 +47,8 @@
 # define TOP			0x59809C
 # define BOTTOM			0x613318
 # define N_W			0xFF0000
-# define S_W			0x00FF00
-# define W_W			0x0000FF
+# define S_W			0xFF00
+# define W_W			0xFF
 # define E_W			0xFFFF00
 # define NORTH			M_PI / 2.0
 # define SOUTH			3.0 * M_PI / 2.0
@@ -60,7 +62,6 @@
 
 # ifdef __linux__
 #  define ESC			65307
-
 #  define KEY_A			97
 #  define KEY_D			100
 #  define KEY_W			119

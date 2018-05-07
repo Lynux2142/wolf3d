@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/03 10:00:57 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/07 10:19:24 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ static void		ft_move(int key, t_all *all)
 		sh.y = (sin(all->p.a) >= 0) ? -HIT_BOX : HIT_BOX;
 		p.x = TO_MAP((sh.x + all->p.x + (cos(all->p.a) * SPEED)));
 		p.y = TO_MAP((sh.y + all->p.y - (sin(all->p.a) * SPEED)));
-		all->p.x += (all->rc.map[TO_MAP(all->p.y)][p.x] != '1') ?
+		all->p.x += (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
+			&& (p.x >= 0 && p.x < 32)
+			&& (all->rc.map[TO_MAP(all->p.y)][p.x] != '1') ?
 			(cos(all->p.a) * SPEED) : 0.0;
-		all->p.y -= (all->rc.map[p.y][TO_MAP(all->p.x)] != '1') ?
+		all->p.y -= (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
+			&& (p.y >= 0 && p.y < 32)
+			&& (all->rc.map[p.y][TO_MAP(all->p.x)] != '1') ?
 			(sin(all->p.a) * SPEED) : 0.0;
 	}
 	if (key == KEY_S)
@@ -34,9 +38,13 @@ static void		ft_move(int key, t_all *all)
 		sh.y = (sin(all->p.a) >= 0) ? HIT_BOX : -HIT_BOX;
 		p.x = TO_MAP((sh.x + all->p.x - (cos(all->p.a) * SPEED)));
 		p.y = TO_MAP((sh.y + all->p.y + (sin(all->p.a) * SPEED)));
-		all->p.x -= (all->rc.map[TO_MAP(all->p.y)][p.x] != '1') ?
+		all->p.x -= (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
+			&& (p.x >= 0 && p.x < 32)
+			&& (all->rc.map[TO_MAP(all->p.y)][p.x] != '1') ?
 			(cos(all->p.a) * SPEED) : 0.0;
-		all->p.y += (all->rc.map[p.y][TO_MAP(all->p.x)] != '1') ?
+		all->p.y += (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
+			&& (p.y >= 0 && p.y < 32)
+			&& (all->rc.map[p.y][TO_MAP(all->p.x)] != '1') ?
 			(sin(all->p.a) * SPEED) : 0.0;
 	}
 }

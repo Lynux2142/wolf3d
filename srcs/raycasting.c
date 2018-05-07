@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/02 14:51:57 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/07 10:28:14 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	ft_dist(char **map, t_ray *ray, t_player *p)
 	i = 0;
 	while (TO_MAP(ray->x) >= 0 && TO_MAP(ray->x) < MAPX
 			&& TO_MAP(ray->y) >= 0 && TO_MAP(ray->y) < MAPY
-			&& map[TO_MAP(ray->y)][TO_MAP(ray->x)] != WALL)
+			&& map[TO_MAP(ray->y)][TO_MAP(ray->x)] != WALL
+			&& map[TO_MAP(ray->y)][TO_MAP(ray->x)] != SECRET)
 	{
 		ray->x += ray->xa;
 		ray->y += ray->ya;
