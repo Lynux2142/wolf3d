@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 10:34:25 by lguiller          #+#    #+#             */
-/*   Updated: 2017/12/29 10:19:10 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/08 15:16:01 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,4 @@ void			ft_putnbr_base(int nbr, char *base)
 	if (nbr < 0 && ft_strlen(base) == 10)
 		ft_putchar('-');
 	ft_calc(nbr, base, ft_strlen(base));
-	ft_putchar('\n');
 }

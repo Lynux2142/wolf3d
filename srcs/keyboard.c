@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/07 10:47:36 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/08 15:29:46 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,14 @@ int				ft_key_funct(int key, t_all *all)
 	if (key == KEY_D)
 		all->p.a -= TO_RAD(5.0);
 	if (key == KEY_W)
+	{
 		ft_moving_forward(all);
+		if (all->p.x > 0 && all->p.x < 64 && all->p.y > 64 && all->p.y < 128)
+		{
+			all->p.x = 2016;
+			all->p.y = 1888;
+		}
+	}
 	if (key == KEY_S)
 		ft_moving_backward(all);
 	if (key == ESC)

@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 16:48:23 by lguiller          #+#    #+#             */
-/*   Updated: 2018/01/28 14:24:33 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/08 14:54:03 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,8 @@ int			ft_brackets(char *str)
 	int		return_value;
 	char	*cpy;
 
-	if (!(cpy = ft_strnew(ft_strlen(str))))
+	if (!(cpy = ft_strdup(str)))
 		return (-1);
-	cpy = ft_strcpy(cpy, str);
 	ft_point(cpy);
 	ft_cut(cpy);
 	ft_check(cpy);
