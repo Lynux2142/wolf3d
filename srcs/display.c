@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/07 15:16:28 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 13:13:58 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		ft_print_all(t_img *info, t_raycast *rc, t_player *p, t_img *fp)
 	while (++i < FPX)
 	{
 		ft_wall_dist(info, rc, p, a);
-		ft_print_on_screen(rc, fp, a, i);
+		ft_print_on_screen(rc, fp, i);
 		a -= TO_RAD(RAY_ANGLE);
 	}
 	ft_print_map(info, rc->map);

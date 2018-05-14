@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/07 10:40:23 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:14:17 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,10 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 	}
 }
 
-void		ft_print_map(t_img *ptr, char **map)
+void		ft_print_map(t_img *ptr, char map[MAPY][MAPX])
 {
 	int		x;
 	int		y;
-/*	int		zoom;
-
-	zoom = 8;
-	y = -1;
-	while (++y < (BUFF_SIZE * zoom))
-	{
-		x = -1;
-		while (++x < (BUFF_SIZE * zoom))
-			if (x % zoom == 0 || y % zoom == 0)
-				ft_fill_pixel(ptr, y, x, 0xFFFFFF);
-	}*/
 
 	y = -1;
 	while (++y < BUFF_SIZE)

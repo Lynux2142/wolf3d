@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/08 15:31:37 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:10:17 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void	ft_init_player(char **map, t_player *p)
+void	ft_init_player(char map[MAPY][MAPX], t_player *p)
 {
 	int	x;
 	int	y;
@@ -25,10 +25,8 @@ void	ft_init_player(char **map, t_player *p)
 		{
 			if (map[y][x] == 's')
 			{
-				p->x = (double)x * (double)BLOCK_SIZE
-					+ ((double)BLOCK_SIZE / 2.0);
-				p->y = (double)y * (double)BLOCK_SIZE
-					+ ((double)BLOCK_SIZE / 2.0);
+				p->x = (double)x * BLOCK_SIZE + (BLOCK_SIZE / 2.0);
+				p->y = (double)y * BLOCK_SIZE + (BLOCK_SIZE / 2.0);
 				p->a = TO_RAD(180.0);
 				break ;
 			}

@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/09 12:07:29 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 13:04:40 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@
 # define EAST2			2.0 * M_PI
 # define SPEED			10.0
 # define HIT_BOX		20.0
-# define HORI			1
-# define VERT			2
 
 # ifdef __linux__
 #  define ESC			65307
@@ -119,7 +117,7 @@ typedef struct	s_raycast
 	t_ray		r_vert;
 	t_ray		ray;
 	double		dist;
-	char		**map;
+	char		map[MAPY][MAPX];
 }				t_raycast;
 
 typedef struct	s_img
@@ -160,17 +158,17 @@ typedef struct	s_all
 	t_mlx		ptr;
 }				t_all;
 
-void			ft_init_player(char **map, t_player *p);
+void			ft_init_player(char map[MAPY][MAPX], t_player *p);
 void			ft_check_map(char *buff, char *start);
-void			ft_read_file(char *name, char ***map);
-void			ft_free_map(char **map);
+void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
+void			ft_free_map(char map[MAPY][MAPX]);
 void			ft_draw(t_all all, char *name);
 void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
-void			ft_print_map(t_img *ptr, char **map);
+void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
 int				ft_key_funct(int key, t_all *all);
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, double a, int x);
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x);
 void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
 
 #endif

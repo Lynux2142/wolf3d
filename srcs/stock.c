@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:34:45 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/03 10:01:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 10:14:45 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void		ft_read_file(char *name, char ***map)
+void		ft_read_file(char *name, char (*map)[MAPY][MAPX])
 {
 	t_parse		parse;
 	static char	start;

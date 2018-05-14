@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 11:30:00 by lguiller          #+#    #+#             */
-/*   Updated: 2018/03/30 11:03:15 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 10:11:51 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void	ft_free_map(char **map)
+void	ft_free_map(char map[MAPY][MAPX])
 {
 	int	i;
 

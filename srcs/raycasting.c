@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/07 10:28:14 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:13:27 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-static void	ft_dist(char **map, t_ray *ray, t_player *p)
+static void	ft_dist(char map[MAPY][MAPX], t_ray *ray, t_player *p)
 {
 	int		i;
 
@@ -32,7 +32,7 @@ static void	ft_dist(char **map, t_ray *ray, t_player *p)
 	ray->dy = ft_fabs(p->y - ray->y);
 }
 
-static void	ft_fp_hori(t_ray *ray, t_player *p, char **map, double a)
+static void	ft_fp_hori(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)
 {
 	if (a == WEST || a == EAST || a == EAST2)
 		ray->fy = p->y;
@@ -44,10 +44,10 @@ static void	ft_fp_hori(t_ray *ray, t_player *p, char **map, double a)
 	ray->ya = ((sin(a) * BLOCK_SIZE) >= 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->xa = -ray->ya / tan(a);
 	ft_dist(map, ray, p);
-	ray->hit = HORI;
+	ray->hit = (sin(a) > 0) ? N_W : S_W;
 }
 
-static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
+static void	ft_fp_vert(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)
 {
 	if (a == NORTH || a == SOUTH)
 		ray->fx = p->x;
@@ -59,7 +59,7 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char **map, double a)
 	ray->xa = ((cos(a) * BLOCK_SIZE) < 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->ya = -ray->xa * tan(a);
 	ft_dist(map, ray, p);
-	ray->hit = VERT;
+	ray->hit = (cos(a) > 0) ? W_W : E_W;
 }
 
 void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
@@ -69,8 +69,10 @@ void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
 
 	ft_fp_hori(&rc->r_hori, p, rc->map, a);
 	ft_fp_vert(&rc->r_vert, p, rc->map, a);
-	dist_hori = sqrt(ft_fpow(rc->r_hori.dx, 2) + ft_fpow(rc->r_hori.dy, 2));
-	dist_vert = sqrt(ft_fpow(rc->r_vert.dx, 2) + ft_fpow(rc->r_vert.dy, 2));
+	dist_hori = sqrt((rc->r_hori.dx * rc->r_hori.dx)
+			+ (rc->r_hori.dy * rc->r_hori.dy));
+	dist_vert = sqrt((rc->r_vert.dx * rc->r_vert.dx)
+			+ (rc->r_vert.dy * rc->r_vert.dy));
 	if (dist_hori != dist_hori || dist_vert != dist_vert)
 		rc->dist = (dist_hori != dist_hori) ? dist_vert : dist_hori;
 	else

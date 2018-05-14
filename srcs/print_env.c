@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/02 15:09:27 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:10:13 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		ft_wall_height_on_screen(double dist)
 	return ((int)(ft_screen_range() * (BLOCK_SIZE / 2.0) / dist));
 }
 
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, double a, int x)
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x)
 {
 	int	i;
 	int	h;
@@ -33,37 +33,13 @@ void			ft_print_on_screen(t_raycast *rc, t_img *fp, double a, int x)
 	{
 		if (i > h)
 		{
-			ft_fill_pixel(fp, x, (WINY / 2) + i, BOTTOM);
 			ft_fill_pixel(fp, x, (WINY / 2) - i, TOP);
+			ft_fill_pixel(fp, x, (WINY / 2) + i, BOTTOM);
 		}
 		else
 		{
-			if (rc->ray.hit == HORI)
-			{
-				if (sin(a) < 0.0)
-				{
-					ft_fill_pixel(fp, x, (WINY / 2) + i, N_W);
-					ft_fill_pixel(fp, x, (WINY / 2) - i, N_W);
-				}
-				else
-				{
-					ft_fill_pixel(fp, x, (WINY / 2) + i, S_W);
-					ft_fill_pixel(fp, x, (WINY / 2) - i, S_W);
-				}
-			}
-			else if (rc->ray.hit == VERT)
-			{
-				if (cos(a) < 0.0)
-				{
-					ft_fill_pixel(fp, x, (WINY / 2) + i, E_W);
-					ft_fill_pixel(fp, x, (WINY / 2) - i, E_W);
-				}
-				else
-				{
-					ft_fill_pixel(fp, x, (WINY / 2) + i, W_W);
-					ft_fill_pixel(fp, x, (WINY / 2) - i, W_W);
-				}
-			}
+			ft_fill_pixel(fp, x, (WINY / 2) + i, rc->ray.hit);
+			ft_fill_pixel(fp, x, (WINY / 2) - i, rc->ray.hit);
 		}
 	}
 }
