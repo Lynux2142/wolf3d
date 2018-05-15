@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/14 14:13:27 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/15 11:28:59 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ static void	ft_dist(char map[MAPY][MAPX], t_ray *ray, t_player *p)
 		ray->y += ray->ya;
 		++i;
 	}
-	ray->dx = ft_fabs(p->x - ray->x);
-	ray->dy = ft_fabs(p->y - ray->y);
+	ray->dx = fabs(p->x - ray->x);
+	ray->dy = fabs(p->y - ray->y);
+	ray->dist = sqrt(pow(ray->dx, 2) + pow(ray->dy, 2));
 }
 
 static void	ft_fp_hori(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)
@@ -64,22 +65,11 @@ static void	ft_fp_vert(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)
 
 void		ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a)
 {
-	double	dist_hori;
-	double	dist_vert;
-
-	ft_fp_hori(&rc->r_hori, p, rc->map, a);
-	ft_fp_vert(&rc->r_vert, p, rc->map, a);
-	dist_hori = sqrt((rc->r_hori.dx * rc->r_hori.dx)
-			+ (rc->r_hori.dy * rc->r_hori.dy));
-	dist_vert = sqrt((rc->r_vert.dx * rc->r_vert.dx)
-			+ (rc->r_vert.dy * rc->r_vert.dy));
-	if (dist_hori != dist_hori || dist_vert != dist_vert)
-		rc->dist = (dist_hori != dist_hori) ? dist_vert : dist_hori;
+	ft_fp_hori(&rc->ray_h, p, rc->map, a);
+	ft_fp_vert(&rc->ray_v, p, rc->map, a);
+	if (rc->ray_h.dist != rc->ray_h.dist || rc->ray_v.dist != rc->ray_v.dist)
+		rc->ray = (rc->ray_h.dist != rc->ray_h.dist) ? rc->ray_v : rc->ray_h;
 	else
-		rc->dist = (dist_hori <= dist_vert) ? dist_hori : dist_vert;
-	if (dist_hori != dist_hori || dist_vert != dist_vert)
-		rc->ray = (dist_hori != dist_hori) ? rc->r_vert : rc->r_hori;
-	else
-		rc->ray = (dist_hori <= dist_vert) ? rc->r_hori : rc->r_vert;
+		rc->ray = (rc->ray_h.dist <= rc->ray_v.dist) ? rc->ray_h : rc->ray_v;
 	ft_algo(info, rc->ray, p, YELLOW);
 }

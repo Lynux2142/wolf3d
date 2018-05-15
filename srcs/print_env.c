@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/14 14:10:13 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/15 11:29:00 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x)
 	int	h;
 
 	i = -1;
-	h = ft_wall_height_on_screen(rc->dist);
+	h = ft_wall_height_on_screen(rc->ray.dist);
 	while ((++i + WINY / 2.0) <= WINY)
 	{
 		if (i > h)

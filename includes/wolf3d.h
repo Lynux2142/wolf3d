@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/14 13:04:40 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/15 11:27:22 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,15 @@ typedef struct	s_ray
 	double		ya;
 	double		dx;
 	double		dy;
+	double		dist;
 	int			hit;
 }				t_ray;
 
 typedef struct	s_raycast
 {
-	t_ray		r_hori;
-	t_ray		r_vert;
+	t_ray		ray_h;
+	t_ray		ray_v;
 	t_ray		ray;
-	double		dist;
 	char		map[MAPY][MAPX];
 }				t_raycast;
 
