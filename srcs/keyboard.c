@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/16 11:32:56 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 14:11:31 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ static void		ft_teleport(t_all *all)
 
 int				ft_key_funct(int key, t_all *all)
 {
-	if (key == 49)
-		printf("x: %f\ny: %f\na: %f\n\n", all->p.x, all->p.y, TO_DEG(all->p.a));
 	if (key == KEY_H)
 		all->rc.f_eye = (all->rc.f_eye == FALSE) ? TRUE : FALSE;
 	if (key == KEY_A)
