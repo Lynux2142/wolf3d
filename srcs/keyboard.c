@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/15 15:26:52 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 10:08:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ int				ft_key_funct(int key, t_all *all)
 {
 	if (key == 49)
 		printf("x: %f\ny: %f\na: %f\n\n", all->p.x, all->p.y, TO_DEG(all->p.a));
+	if (key == KEY_H)
+		all->rc.f_eye = (all->rc.f_eye == FALSE) ? TRUE : FALSE;
 	if (key == KEY_A)
 		all->p.a += TO_RAD(5.0);
 	if (key == KEY_D)
 		all->p.a -= TO_RAD(5.0);
 	if (key == KEY_W)
-	{
 		ft_moving_forward(all);
-	}
 	if (key == KEY_S)
 		ft_moving_backward(all);
 	if (key == ESC)

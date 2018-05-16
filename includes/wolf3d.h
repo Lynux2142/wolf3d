@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/15 14:51:32 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 10:07:27 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@
 # define SPEED			10.0
 # define HIT_BOX		10.0
 # define LITTLE			0.00000000000012
+# define TRUE			1
+# define FALSE			0
 
 # ifdef __linux__
 #  define ESC			65307
@@ -65,12 +67,16 @@
 #  define KEY_D			100
 #  define KEY_W			119
 #  define KEY_S			115
+
+#  define KEY_H			4
+
 # else
 #  define ESC			53
 #  define KEY_A			0
 #  define KEY_D			2
 #  define KEY_W			13
 #  define KEY_S			1
+#  define KEY_H			4
 # endif
 
 typedef struct	s_coord
@@ -118,6 +124,7 @@ typedef struct	s_raycast
 	t_ray		ray_h;
 	t_ray		ray_v;
 	t_ray		ray;
+	double		f_eye;
 	char		map[MAPY][MAPX];
 }				t_raycast;
 
@@ -169,7 +176,7 @@ void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
 int				ft_key_funct(int key, t_all *all);
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x);
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
 void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
 
 #endif

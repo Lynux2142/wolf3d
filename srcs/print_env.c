@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/15 11:29:00 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 09:24:17 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int		ft_wall_height_on_screen(double dist)
 	return ((int)(ft_screen_range() * (BLOCK_SIZE / 2.0) / dist));
 }
 
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x)
+void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a)
 {
 	int	i;
 	int	h;
 
 	i = -1;
-	h = ft_wall_height_on_screen(rc->ray.dist);
+	h = ft_wall_height_on_screen(rc->ray.dist * cos(a));
 	while ((++i + WINY / 2.0) <= WINY)
 	{
 		if (i > h)
