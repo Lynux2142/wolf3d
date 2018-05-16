@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/16 10:07:27 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/16 11:28:02 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@
 # define FLOOR			' '
 # define WALL			'1'
 # define SECRET			'2'
+# define TP_S			'3'
+# define TP_E			'4'
 # define TO_MAP(x)		(int)x / 64
 # define BLACK			0
 # define WHITE			0xFFFFFF
 # define RED			0xFF0000
 # define GREEN			0xFF00
 # define BLUE			0xFF
+# define LIGHT_GREEN	0xAAFFAA
 # define GREY			0x888888
 # define YELLOW			0xFFFF00
 # define TOP			0x59809C
@@ -167,7 +170,7 @@ typedef struct	s_all
 }				t_all;
 
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
-void			ft_check_map(char *buff, char *start);
+void			ft_check_map(char *buff, char (*start)[2]);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
 void			ft_free_map(char map[MAPY][MAPX]);
 void			ft_draw(t_all all, char *name);

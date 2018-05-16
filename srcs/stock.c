@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:34:45 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/14 10:14:45 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 11:02:01 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		ft_read_file(char *name, char (*map)[MAPY][MAPX])
 {
 	t_parse		parse;
-	static char	start;
+	static char	start[2];
 	int			test_gnl;
 
 	if ((parse.fd = open(name, O_RDONLY)) == -1)
@@ -34,7 +34,7 @@ void		ft_read_file(char *name, char (*map)[MAPY][MAPX])
 		ft_error("error: Not valid file", 1, ft_puterror);
 	if (parse.i < BUFF_SIZE)
 		ft_error("error: Wrong column lenght", 4, ft_puterror);
-	if (start == 0)
+	if (start[0] == 0)
 		ft_error("error: No start found", 1, ft_puterror);
 	if ((close(parse.fd)) == -1)
 		ft_error("error", 1, perror);

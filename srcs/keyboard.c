@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/16 10:08:55 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/16 11:17:32 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,29 @@ static void		ft_moving_backward(t_all *all)
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
+static void		ft_teleport(t_all *all)
+{
+	int	y;
+	int	x;
+
+	if (all->rc.map[TO_MAP(all->p.y)][TO_MAP(all->p.x)] == '3')
+	{
+		y = -1;
+		while (++y < MAPY)
+		{
+			x = -1;
+			while (++x < MAPX)
+			{
+				if (all->rc.map[y][x] == '4')
+				{
+					all->p.x = x * (int)BLOCK_SIZE + 32;
+					all->p.y = y * (int)BLOCK_SIZE + 32;
+				}
+			}
+		}
+	}
+}
+
 int				ft_key_funct(int key, t_all *all)
 {
 	if (key == 49)
@@ -66,6 +89,7 @@ int				ft_key_funct(int key, t_all *all)
 		ft_moving_backward(all);
 	if (key == ESC)
 		exit(0);
+	ft_teleport(all);
 	mlx_destroy_image(all->ptr.mlx, all->info.img);
 	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
 	ft_print_all(&all->info, &all->rc, &all->p, &all->fp);
