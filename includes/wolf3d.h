@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/16 11:28:02 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/16 15:18:52 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@
 #  define KEY_S			115
 
 #  define KEY_H			4
+#  define KEY_Q			12
+#  define KEY_E			14
 
 # else
 #  define ESC			53
@@ -80,6 +82,8 @@
 #  define KEY_W			13
 #  define KEY_S			1
 #  define KEY_H			4
+#  define KEY_Q			12
+#  define KEY_E			14
 # endif
 
 typedef struct	s_coord
@@ -181,5 +185,6 @@ void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
 int				ft_key_funct(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
 void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
+void			ft_movements(t_all *all, int key);
 
 #endif
