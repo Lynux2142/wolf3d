@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/16 15:18:52 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/17 09:51:16 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,5 +186,6 @@ int				ft_key_funct(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
 void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
 void			ft_movements(t_all *all, int key);
+int				ft_mouse(int key, int x, int y, t_all *all);
 
 #endif
