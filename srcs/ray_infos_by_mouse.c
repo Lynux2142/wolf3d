@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 09:23:30 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/17 14:39:19 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/17 14:50:29 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_dist(char map[MAPY][MAPX], t_ray *ray, t_player *p)
 		ray->y += ray->ya;
 		++i;
 	}
-	printf("i: %d\n ray_x: %f\n ray_y: %f\n", i, ray->x, ray->y);
+	printf("i: %d\nray_x: %f\nray_y: %f\n", i, ray->x, ray->y);
 	ray->dx = fabs(p->x - ray->x);
 	ray->dy = fabs(p->y - ray->y);
 	ray->dist = sqrt(pow(ray->dx, 2) + pow(ray->dy, 2));
@@ -74,8 +74,9 @@ static void	ft_test_ray(t_raycast *rc, t_player *p, double a)
 {
 	printf("px: %f\npy: %f\na: %f\n", p->x, p->y, p->a);
 	ft_fp_hori(&rc->ray_h, p, rc->map, a);
+	printf("dist_hori: %f\n", rc->ray_h.dist);
 	ft_fp_vert(&rc->ray_v, p, rc->map, a);
-	printf("dist_hori: %f\ndist_vert: %f\n\n", rc->ray_h.dist, rc->ray_v.dist);
+	printf("dist_vert: %f\n\n", rc->ray_v.dist);
 	if (rc->ray_h.dist != rc->ray_h.dist || rc->ray_v.dist != rc->ray_v.dist)
 		rc->ray = (rc->ray_h.dist != rc->ray_h.dist) ? rc->ray_v : rc->ray_h;
 	else
@@ -86,7 +87,7 @@ static void	ft_ray_infos(t_raycast *rc, t_player *p, int x)
 {
 	double a;
 
-	a = p->a - TO_RAD(((x - INFOX) - (FPX / 2)) * RAY_ANGLE);
+	a = p->a - TO_RAD(((x - INFOX - 1) - (FPX / 2) - 1) * RAY_ANGLE);
 	ft_test_ray(rc, p, a);
 }
 
