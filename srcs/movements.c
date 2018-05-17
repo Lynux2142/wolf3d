@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/16 15:20:11 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/17 09:15:31 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		ft_strafing_left(t_all *all)
 {
 	t_coord		p;
 	t_fcoord	sh;
-	
+
 	sh.x = (sin(all->p.a) >= 0) ? -HIT_BOX : HIT_BOX;
 	sh.y = (cos(all->p.a) >= 0) ? -HIT_BOX : HIT_BOX;
 	p.x = (sh.x + all->p.x - (sin(all->p.a) * SPEED));
@@ -91,7 +91,7 @@ static void		ft_moving_backward(t_all *all)
 void			ft_movements(t_all *all, int key)
 {
 	if (key == KEY_A)
-		ft_strafing_left(all);;
+		ft_strafing_left(all);
 	if (key == KEY_D)
 		ft_strafing_right(all);
 	if (key == KEY_W)
