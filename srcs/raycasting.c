@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:06:10 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/17 14:57:45 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/17 15:34:09 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	ft_fp_hori(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)
 	ray->ya = (sin(a) >= 0) ? -BLOCK_SIZE : BLOCK_SIZE;
 	ray->xa = -ray->ya / tan(a);
 	ft_dist(map, ray, p);
-	ray->hit = (sin(a) > 0) ? N_W : S_W;
+	ray->hit = (sin(a) > 0) ? S_W : N_W;
 }
 
 static void	ft_fp_vert(t_ray *ray, t_player *p, char map[MAPY][MAPX], double a)

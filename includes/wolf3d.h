@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/17 09:51:16 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/17 15:40:11 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@
 # define LIGHT_GREEN	0xAAFFAA
 # define GREY			0x888888
 # define YELLOW			0xFFFF00
-# define TOP			0x59809C
-# define BOTTOM			0x613318
-# define N_W			0xFF0000
-# define S_W			0xFFFF00
-# define E_W			0xFF00
-# define W_W			0xFF
+# define TOP			0x00BFFF
+# define BOTTOM			0xFFDA8C
+# define N_W			0x940602
+# define S_W			0x50468C
+# define E_W			0x769600
+# define W_W			0xD45E3A
 # define NORTH			M_PI / 2.0
 # define SOUTH			3.0 * M_PI / 2.0
 # define WEST			M_PI
