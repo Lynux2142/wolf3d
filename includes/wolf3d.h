@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/21 16:35:31 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/21 16:39:46 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define LIGHT_GREEN	0xAAFFAA
 # define GREY			0x888888
 # define YELLOW			0xFFFF00
-# define TOP			0x97DFF2
+# define TOP			0x87CEFA
 # define BOTTOM			0xFFDA8C
 # define N_W			0x940602
 # define S_W			0x50468C
