@@ -6,22 +6,28 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 09:30:13 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/20 10:15:10 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/21 11:23:04 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_roundmsup(int nb, int mult)
+double	ft_roundmsup(double nb, int mult)
 {
-	while ((nb % mult) != 0)
-		++nb;
-	return (nb);
+	int n;
+
+	n = (int)ceil(nb);
+	while ((n % mult) != 0)
+		++n;
+	return ((double)n);
 }
 
-int		ft_roundminf(int nb, int mult)
+double	ft_roundminf(double nb, int mult)
 {
-	while ((nb % mult) != 0)
-		--nb;
-	return (nb);
+	int n;
+
+	n = (int)floor(nb);
+	while ((n % mult) != 0)
+		--n;
+	return ((double)n);
 }

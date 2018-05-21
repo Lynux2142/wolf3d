@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:16:27 by lguiller          #+#    #+#             */
-/*   Updated: 2018/04/23 11:37:25 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/21 11:19:26 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <errno.h>
+#include <math.h>
 
 # define BUFF_SIZE 32
 # define GNL_CAR '\n'
@@ -129,7 +130,7 @@ void				print_memory(const void *addr, size_t size);
 
 void				ft_error(char *str, int error, void (*f)(const char *));
 
-int					ft_roundmsup(int nb, int mult);
-int					ft_roundminf(int nb, int mult);
+double				ft_roundmsup(double nb, int mult);
+double				ft_roundminf(double nb, int mult);
 
 #endif

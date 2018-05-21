@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/17 15:40:11 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/21 11:15:55 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct	s_player
 	double		x;
 	double		y;
 	double		a;
+	int			ray_infos;
 }				t_player;
 
 typedef struct	s_parse
