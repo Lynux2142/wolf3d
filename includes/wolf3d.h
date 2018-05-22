@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 12:02:52 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/22 13:34:10 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@
 # define WEST			M_PI
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
-# define SPEED			5.0
+# define MOVE_SPEED	3.0
+# define ROT_SPEED		TO_RAD(2.5)
 # define HIT_BOX		10.0
 # define LITTLE			0.00000000000012
 # define TRUE			1
