@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 13:08:56 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/22 14:02:12 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,14 @@ void		ft_print_all(t_all *all)
 	ft_print_map(&all->info, all->rc.map);
 }
 
-static int	ft_key_funct_false(int key, t_all *all)
-{
-	all->keys_tab[KEY_A] = (key == KEY_A) ? FALSE : all->keys_tab[KEY_A];
-	all->keys_tab[KEY_W] = (key == KEY_W) ? FALSE : all->keys_tab[KEY_W];
-	all->keys_tab[KEY_S] = (key == KEY_S) ? FALSE : all->keys_tab[KEY_S];
-	all->keys_tab[KEY_D] = (key == KEY_D) ? FALSE : all->keys_tab[KEY_D];
-	all->keys_tab[KEY_Q] = (key == KEY_Q) ? FALSE : all->keys_tab[KEY_Q];
-	all->keys_tab[KEY_E] = (key == KEY_E) ? FALSE : all->keys_tab[KEY_E];
-	return (1);
-}
-
 void		ft_draw(t_all all, char *name)
 {
 	char	*title;
 
 	title = ft_strjoin("wolf3d - ", name + 5);
 	ft_init(&all, title);
-	mlx_hook(all.ptr.win, 2, (1L << 0), ft_key_funct, &all);
-	mlx_hook(all.ptr.win, 3, (1L << 1), ft_key_funct_false, &all);
+	mlx_hook(all.ptr.win, 2, (1L << 0), ft_key_press, &all);
+	mlx_hook(all.ptr.win, 3, (1L << 1), ft_key_release, &all);
 	mlx_loop_hook(all.ptr.mlx, ft_movements, &all);
 	mlx_hook(all.ptr.win, 4, (1L << 2), ft_mouse, &all);
 	ft_print_all(&all);

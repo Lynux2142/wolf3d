@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 13:34:10 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 13:59:37 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,8 @@ void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
-int				ft_key_funct(int key, t_all *all);
+int				ft_key_press(int key, t_all *all);
+int				ft_key_release(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
 void			ft_print_all(t_all *all);
 int				ft_movements(t_all *all);

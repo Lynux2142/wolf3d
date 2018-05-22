@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 13:49:28 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 14:01:51 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,29 @@ static void	ft_strafing(t_all *all, double dir)
 		-dir * (cos(all->p.a) * MOVE_SPEED) : 0.0;
 }
 
+static void	ft_teleport(t_all *all)
+{
+	int    y;
+	int    x;
+
+	if (all->rc.map[TO_MAP(all->p.y)][TO_MAP(all->p.x)] == '3')
+	{
+		y = -1;
+		while (++y < MAPY)
+		{
+			x = -1;
+			while (++x < MAPX)
+			{
+				if (all->rc.map[y][x] == '4')
+				{
+					all->p.x = x * (int)BLOCK_SIZE + 32;
+					all->p.y = y * (int)BLOCK_SIZE + 32;
+				}
+			}
+		}
+	}
+}
+
 int			ft_movements(t_all *all)
 {
 	if (all->keys_tab[KEY_A] == TRUE)
@@ -68,11 +91,12 @@ int			ft_movements(t_all *all)
 		all->p.a += ROT_SPEED;
 	if (all->keys_tab[KEY_E] == TRUE)
 		all->p.a -= ROT_SPEED;
+	ft_teleport(all);
 	mlx_destroy_image(all->ptr.mlx, all->info.img);
 	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
 	ft_print_all(all);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img,
-		INFOX + 1, 0);
+			INFOX + 1, 0);
 	return (1);
 }
