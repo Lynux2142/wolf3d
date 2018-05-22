@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 14:01:55 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 19:22:43 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int		ft_key_press(int key, t_all *all)
 {
+	printf("%d\n", key);
 	all->keys_tab[KEY_A] = (key == KEY_A) ? TRUE : all->keys_tab[KEY_A];
 	all->keys_tab[KEY_W] = (key == KEY_W) ? TRUE : all->keys_tab[KEY_W];
 	all->keys_tab[KEY_S] = (key == KEY_S) ? TRUE : all->keys_tab[KEY_S];
 	all->keys_tab[KEY_D] = (key == KEY_D) ? TRUE : all->keys_tab[KEY_D];
 	all->keys_tab[KEY_Q] = (key == KEY_Q) ? TRUE : all->keys_tab[KEY_Q];
 	all->keys_tab[KEY_E] = (key == KEY_E) ? TRUE : all->keys_tab[KEY_E];
-	all->keys_tab[KEY_H] = (key == KEY_H && all->keys_tab[KEY_H] == 0) ? 1 : 0;
+	if (key == KEY_H)
+		all->keys_tab[KEY_H] = (all->keys_tab[KEY_H] == FALSE) ? TRUE : FALSE;
 	if (key == ESC)
 		exit(0);
 	return (1);

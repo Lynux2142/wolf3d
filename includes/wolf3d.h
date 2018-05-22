@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 13:59:37 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 19:28:18 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,25 @@
 # define WEST			M_PI
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
-# define MOVE_SPEED	3.0
-# define ROT_SPEED		TO_RAD(2.5)
 # define HIT_BOX		10.0
 # define LITTLE			0.00000000000012
 # define TRUE			1
 # define FALSE			0
 
 # ifdef __linux__
+#  define MOVE_SPEED	2.0
+#  define ROT_SPEED		TO_RAD(1.5)
 #  define ESC			65307
 #  define KEY_A			97
 #  define KEY_D			100
 #  define KEY_W			119
 #  define KEY_S			115
-
-#  define KEY_H			4
-#  define KEY_Q			12
-#  define KEY_E			14
-
+#  define KEY_H			104
+#  define KEY_Q			113
+#  define KEY_E			101
 # else
+#  define MOVE_SPEED		3.0
+#  define ROT_SPEED		TO_RAD(2.5)
 #  define ESC			53
 #  define KEY_A			0
 #  define KEY_D			2
