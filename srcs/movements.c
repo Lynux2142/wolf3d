@@ -6,13 +6,13 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 10:30:43 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 13:09:31 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-static void		ft_strafing_left(t_all *all)
+static void	ft_strafing_left(t_all *all)
 {
 	t_coord		p;
 	t_fcoord	sh;
@@ -33,7 +33,7 @@ static void		ft_strafing_left(t_all *all)
 		(cos(all->p.a) * SPEED) : 0.0;
 }
 
-static void		ft_strafing_right(t_all *all)
+static void	ft_strafing_right(t_all *all)
 {
 	t_coord		p;
 	t_fcoord	sh;
@@ -54,7 +54,7 @@ static void		ft_strafing_right(t_all *all)
 		(cos(all->p.a) * SPEED) : 0.0;
 }
 
-static void		ft_moving_forward(t_all *all)
+static void	ft_moving_forward(t_all *all)
 {
 	t_coord		p;
 	t_fcoord	sh;
@@ -75,7 +75,7 @@ static void		ft_moving_forward(t_all *all)
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
-static void		ft_moving_backward(t_all *all)
+static void	ft_moving_backward(t_all *all)
 {
 	t_coord		p;
 	t_fcoord	sh;
@@ -96,14 +96,25 @@ static void		ft_moving_backward(t_all *all)
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
-void			ft_movements(t_all *all, int key)
+int			ft_movements(t_all *all)
 {
-	if (key == KEY_A)
+	if (all->keys_tab[KEY_A] == TRUE)
 		ft_strafing_left(all);
-	if (key == KEY_D)
+	if (all->keys_tab[KEY_D] == TRUE)
 		ft_strafing_right(all);
-	if (key == KEY_W)
+	if (all->keys_tab[KEY_W] == TRUE)
 		ft_moving_forward(all);
-	if (key == KEY_S)
+	if (all->keys_tab[KEY_S] == TRUE)
 		ft_moving_backward(all);
+	if (all->keys_tab[KEY_Q] == TRUE)
+		all->p.a += TO_RAD(2.5);
+	if (all->keys_tab[KEY_E] == TRUE)
+		all->p.a -= TO_RAD(2.5);
+	mlx_destroy_image(all->ptr.mlx, all->info.img);
+	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
+	ft_print_all(all);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img,
+		INFOX + 1, 0);
+	return (1);
 }

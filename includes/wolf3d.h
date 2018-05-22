@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/21 16:39:46 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 12:02:52 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define WEST			M_PI
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
-# define SPEED			10.0
+# define SPEED			5.0
 # define HIT_BOX		10.0
 # define LITTLE			0.00000000000012
 # define TRUE			1
@@ -132,7 +132,6 @@ typedef struct	s_raycast
 	t_ray		ray_h;
 	t_ray		ray_v;
 	t_ray		ray;
-	double		f_eye;
 	char		map[MAPY][MAPX];
 }				t_raycast;
 
@@ -172,6 +171,7 @@ typedef struct	s_all
 	t_img		info;
 	t_img		fp;
 	t_mlx		ptr;
+	int			keys_tab[280];
 }				t_all;
 
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
@@ -185,8 +185,8 @@ void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
 int				ft_key_funct(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
-void			ft_print_all(t_img *inf, t_raycast *rc, t_player *p, t_img *fp);
-void			ft_movements(t_all *all, int key);
+void			ft_print_all(t_all *all);
+int				ft_movements(t_all *all);
 int				ft_mouse(int key, int x, int y, t_all *all);
 
 #endif
