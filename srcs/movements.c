@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/17 09:15:31 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/22 10:30:43 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ static void		ft_strafing_left(t_all *all)
 	p.y = (sh.y + all->p.y - (cos(all->p.a) * SPEED));
 	all->p.x -= (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
 		&& (p.x >= HIT_BOX && p.x < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(all->p.y)][TO_MAP(p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP((all->p.y - HIT_BOX))][TO_MAP(p.x)] != '1' &&
+		all->rc.map[TO_MAP((all->p.y + HIT_BOX))][TO_MAP(p.x)] != '1') ?
 		(sin(all->p.a) * SPEED) : 0.0;
 	all->p.y -= (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
 		&& (p.y >= HIT_BOX && p.y < (MAPY * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(p.y)][TO_MAP(all->p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x + HIT_BOX))] != '1' &&
+		all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x - HIT_BOX))] != '1') ?
 		(cos(all->p.a) * SPEED) : 0.0;
 }
 
@@ -42,11 +44,13 @@ static void		ft_strafing_right(t_all *all)
 	p.y = (sh.y + all->p.y + (cos(all->p.a) * SPEED));
 	all->p.x += (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
 		&& (p.x >= HIT_BOX && p.x < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(all->p.y)][TO_MAP(p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP((all->p.y + HIT_BOX))][TO_MAP(p.x)] != '1' &&
+		all->rc.map[TO_MAP((all->p.y - HIT_BOX))][TO_MAP(p.x)] != '1') ?
 		(sin(all->p.a) * SPEED) : 0.0;
 	all->p.y += (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
 		&& (p.y >= HIT_BOX && p.y < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(p.y)][TO_MAP(all->p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x + HIT_BOX))] != '1' &&
+		all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x - HIT_BOX))] != '1') ?
 		(cos(all->p.a) * SPEED) : 0.0;
 }
 
@@ -61,11 +65,13 @@ static void		ft_moving_forward(t_all *all)
 	p.y = (sh.y + all->p.y - (sin(all->p.a) * SPEED));
 	all->p.x += (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
 		&& (p.x >= HIT_BOX && p.x < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(all->p.y)][TO_MAP(p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP((all->p.y - HIT_BOX))][TO_MAP(p.x)] != '1' &&
+		all->rc.map[TO_MAP((all->p.y + HIT_BOX))][TO_MAP(p.x)] != '1') ?
 		(cos(all->p.a) * SPEED) : 0.0;
 	all->p.y -= (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
 		&& (p.y >= HIT_BOX && p.y < (MAPY * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(p.y)][TO_MAP(all->p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x + HIT_BOX))] != '1' &&
+		all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x - HIT_BOX))] != '1') ?
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
@@ -80,11 +86,13 @@ static void		ft_moving_backward(t_all *all)
 	p.y = (sh.y + all->p.y + (sin(all->p.a) * SPEED));
 	all->p.x -= (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
 		&& (p.x >= HIT_BOX && p.x < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(all->p.y)][TO_MAP(p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP((all->p.y - HIT_BOX))][TO_MAP(p.x)] != '1' &&
+		all->rc.map[TO_MAP((all->p.y + HIT_BOX))][TO_MAP(p.x)] != '1') ?
 		(cos(all->p.a) * SPEED) : 0.0;
 	all->p.y += (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
 		&& (p.y >= HIT_BOX && p.y < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
-		&& (all->rc.map[TO_MAP(p.y)][TO_MAP(all->p.x)] != '1') ?
+		&& (all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x + HIT_BOX))] != '1' &&
+		all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x - HIT_BOX))] != '1') ?
 		(sin(all->p.a) * SPEED) : 0.0;
 }
 
