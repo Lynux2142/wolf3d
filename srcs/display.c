@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 14:02:12 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/23 09:59:30 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,36 @@ void		ft_fill_pixel(t_img *ptr, int x, int y, int col)
 	}
 }
 
+static void	*ft_test_thread(void *ptr)
+{
+	t_all *all;
+
+	all = (t_all *)ptr;
+	ft_wall_dist(&all->info, &all->rc, &all->p, all->a);
+//	pthread_exit(NULL);
+	return (NULL);
+}
+
 void		ft_print_all(t_all *all)
 {
+//	pthread_t	p[FPX];
 	int			i;
-	double		a;
 	double		lens;
 
-	a = all->p.a + TO_RAD(30.0);
-	i = -1;
+	all->a = all->p.a + TO_RAD(30.0);
 	lens = TO_RAD(FOV / 2.0) * all->keys_tab[KEY_H];
+	i = -1;
 	while (++i < FPX)
 	{
-		ft_wall_dist(&all->info, &all->rc, &all->p, a);
+//		pthread_create(&p[i], NULL, ft_test_thread, all);
+		ft_test_thread(all);
 		ft_print_on_screen(&all->rc, &all->fp, i, lens);
 		lens -= TO_RAD(RAY_ANGLE) * all->keys_tab[KEY_H];
-		a -= TO_RAD(RAY_ANGLE);
+		all->a -= TO_RAD(RAY_ANGLE);
 	}
+//	i = -1;
+//	while (++i < FPX)
+//		pthread_join(p[i], NULL);
 	ft_print_map(&all->info, all->rc.map);
 }
 

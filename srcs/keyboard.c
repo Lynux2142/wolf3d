@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 19:22:43 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/23 09:26:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_key_press(int key, t_all *all)
 {
-	printf("%d\n", key);
 	all->keys_tab[KEY_A] = (key == KEY_A) ? TRUE : all->keys_tab[KEY_A];
 	all->keys_tab[KEY_W] = (key == KEY_W) ? TRUE : all->keys_tab[KEY_W];
 	all->keys_tab[KEY_S] = (key == KEY_S) ? TRUE : all->keys_tab[KEY_S];

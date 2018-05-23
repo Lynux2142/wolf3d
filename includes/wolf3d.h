@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 19:28:18 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/23 09:41:38 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "mlx.h"
 # include <math.h>
 # include <limits.h>
+# include <pthread.h>
 
 # define MAPX			32
 # define MAPY			32
@@ -24,6 +25,8 @@
 # define INFOY			WINY
 # define FPX			960
 # define FPY			600
+//# define FPX			800
+//# define FPY			600
 # define WINX			FPX + INFOX
 # define WINY			FPY
 # define BLOCK_SIZE		64.0
@@ -173,6 +176,7 @@ typedef struct	s_all
 	t_img		fp;
 	t_mlx		ptr;
 	int			keys_tab[280];
+	double		a;
 }				t_all;
 
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
