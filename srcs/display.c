@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/23 09:59:30 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/24 12:12:27 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void		ft_draw(t_all all, char *name)
 	ft_init(&all, title);
 	mlx_hook(all.ptr.win, 2, (1L << 0), ft_key_press, &all);
 	mlx_hook(all.ptr.win, 3, (1L << 1), ft_key_release, &all);
-	mlx_loop_hook(all.ptr.mlx, ft_movements, &all);
 	mlx_hook(all.ptr.win, 4, (1L << 2), ft_mouse, &all);
+	mlx_loop_hook(all.ptr.mlx, ft_movements, &all);
 	ft_print_all(&all);
 	mlx_put_image_to_window(all.ptr.mlx, all.ptr.win, all.info.img, 0, 0);
 	mlx_put_image_to_window(all.ptr.mlx, all.ptr.win, all.fp.img, INFOX + 1, 0);
