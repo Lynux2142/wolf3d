@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 15:26:55 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/25 16:26:56 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define YELLOW			0xFFFF00
 # define TOP			0x87CEFA
 # define BOTTOM			0xFFDA8C
+# define B_G			0xAAAAAA
 # define N_W			0x940602
 # define S_W			0x50468C
 # define E_W			0x769600
@@ -194,6 +195,7 @@ void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
 void			ft_free_map(char map[MAPY][MAPX]);
 void			ft_draw(t_all all, char *name);
 void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
+void			ft_background_color(t_img *ptr);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
