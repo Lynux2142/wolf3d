@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 16:26:56 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/25 17:58:54 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define YELLOW			0xFFFF00
 # define TOP			0x87CEFA
 # define BOTTOM			0xFFDA8C
-# define B_G			0xAAAAAA
+# define B_G			0x4B381D
 # define N_W			0x940602
 # define S_W			0x50468C
 # define E_W			0x769600

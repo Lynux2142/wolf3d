@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 17:28:55 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/25 17:57:55 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void		ft_print_all(t_all *all)
 	int			i;
 	double		lens;
 
+	ft_print_map(&all->info, all->rc.map);
 	all->a = all->p.a + TO_RAD(30.0);
 	lens = TO_RAD(FOV / 2.0) * all->keys_tab[KEY_H];
 	i = -1;
-	ft_background_color(&all->info);
 	while (++i < FPX)
 	{
 //		pthread_create(&p[i], NULL, ft_test_thread, all);
@@ -73,7 +73,6 @@ void		ft_print_all(t_all *all)
 //	i = -1;
 //	while (++i < FPX)
 //		pthread_join(p[i], NULL);
-	ft_print_map(&all->info, all->rc.map);
 }
 
 void		ft_draw(t_all all, char *name)
