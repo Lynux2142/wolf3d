@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/25 15:32:55 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/25 17:29:57 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ int			ft_movements(t_all *all)
 	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
 	ft_print_all(all);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
-	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img,
-			INFOX + 1, 0);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
 	return (1);
 }

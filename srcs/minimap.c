@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 16:29:25 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/25 17:27:42 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ void		ft_background_color(t_img *ptr)
 	int	x;
 	int	y;
 
-	x = -1;
 	y = -1;
-	while (++x <= INFOX)
+	while (++y <= INFOY)
 	{
-		while (++y <= INFOY)
+		x = -1;
+		while (++x <= INFOX)
 			ft_fill_pixel(ptr, x, y, B_G);
-		y = 0;
 	}
 }
 
