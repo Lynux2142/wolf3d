@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/24 16:15:55 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/25 15:26:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define WINX			FPX + INFOX
 # define WINY			FPY
 # define BLOCK_SIZE		64.0
-# define CAM_HEIGHT		BLOCK_SIZE / 2
+# define CAM_HEIGHT		BLOCK_SIZE / 2.0
 # define FOV			60.0
 # define TO_RAD(x)		x * M_PI / 180.0
 # define TO_DEG(x)		x / (M_PI / 180.0)
@@ -68,6 +68,9 @@
 
 # ifdef __linux__
 #  define MOVE_SPEED	2.0
+
+#  define RUN_SPEED		3.0
+
 #  define ROT_SPEED		TO_RAD(1.5)
 #  define ESC			65307
 #  define KEY_A			97
@@ -77,8 +80,12 @@
 #  define KEY_H			104
 #  define KEY_Q			113
 #  define KEY_E			101
+
+#  define KEY_SHIFT		257
+
 # else
-#  define MOVE_SPEED		3.0
+#  define MOVE_SPEED	2.0
+#  define RUN_SPEED		6.0
 #  define ROT_SPEED		TO_RAD(2.5)
 #  define ESC			53
 #  define KEY_A			0
@@ -88,6 +95,7 @@
 #  define KEY_H			4
 #  define KEY_Q			12
 #  define KEY_E			14
+#  define KEY_SHIFT		257
 # endif
 
 typedef struct	s_coord
@@ -180,6 +188,7 @@ typedef struct	s_all
 }				t_all;
 
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
+void			ft_init_keys_tab(int (*keys_tab)[280]);
 void			ft_check_map(char *buff, char (*start)[2]);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
 void			ft_free_map(char map[MAPY][MAPX]);

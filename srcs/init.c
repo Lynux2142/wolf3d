@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/22 10:38:47 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/25 15:28:57 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ void	ft_init_player(char map[MAPY][MAPX], t_player *p)
 			}
 		}
 	}
+}
+
+void	ft_init_keys_tab(int (*keys_tab)[280])
+{
+	int i;
+
+	i = -1;
+	while (++i < 280)
+		keys_tab[0][i] = 0;
 }

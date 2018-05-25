@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 14:01:51 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/25 15:32:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,26 @@ static void	ft_moving(t_all *all, double dir)
 {
 	t_coord		p;
 	t_fcoord	sh;
+	double		speed;
 
+	if (all->keys_tab[KEY_SHIFT] == TRUE && all->keys_tab[KEY_W] == TRUE)
+		speed = RUN_SPEED;
+	else
+		speed = MOVE_SPEED;
 	sh.x = (cos(all->p.a) >= 0) ? dir * HIT_BOX : -dir * HIT_BOX;
 	sh.y = (sin(all->p.a) >= 0) ? -dir * HIT_BOX : dir * HIT_BOX;
-	p.x = (sh.x + all->p.x + dir * ((cos(all->p.a) * MOVE_SPEED)));
-	p.y = (sh.y + all->p.y + -dir * ((sin(all->p.a) * MOVE_SPEED)));
+	p.x = (sh.x + all->p.x + dir * ((cos(all->p.a) * speed)));
+	p.y = (sh.y + all->p.y + -dir * ((sin(all->p.a) * speed)));
 	all->p.x += (all->p.y >= 0.0 && TO_MAP(all->p.y) < 32)
 		&& (p.x >= HIT_BOX && p.x < (MAPX * (int)BLOCK_SIZE - HIT_BOX))
 		&& (all->rc.map[TO_MAP((all->p.y - HIT_BOX))][TO_MAP(p.x)] != '1' &&
 		all->rc.map[TO_MAP((all->p.y + HIT_BOX))][TO_MAP(p.x)] != '1') ?
-		dir * (cos(all->p.a) * MOVE_SPEED) : 0.0;
+		dir * (cos(all->p.a) * speed) : 0.0;
 	all->p.y += (all->p.x >= 0.0 && TO_MAP(all->p.x) < 32)
 		&& (p.y >= HIT_BOX && p.y < (MAPY * (int)BLOCK_SIZE - HIT_BOX))
 		&& (all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x + HIT_BOX))] != '1' &&
 		all->rc.map[TO_MAP(p.y)][TO_MAP((all->p.x - HIT_BOX))] != '1') ?
-		-dir * (sin(all->p.a) * MOVE_SPEED) : 0.0;
+		-dir * (sin(all->p.a) * speed) : 0.0;
 }
 
 static void	ft_strafing(t_all *all, double dir)
@@ -56,8 +61,8 @@ static void	ft_strafing(t_all *all, double dir)
 
 static void	ft_teleport(t_all *all)
 {
-	int    y;
-	int    x;
+	int	y;
+	int	x;
 
 	if (all->rc.map[TO_MAP(all->p.y)][TO_MAP(all->p.x)] == '3')
 	{
