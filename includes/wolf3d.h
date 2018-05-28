@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 17:58:54 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/28 15:36:10 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define YELLOW			0xFFFF00
 # define TOP			0x87CEFA
 # define BOTTOM			0xFFDA8C
-# define B_G			0x4B381D
+# define B_G			0x5d6d7e
 # define N_W			0x940602
 # define S_W			0x50468C
 # define E_W			0x769600
@@ -63,13 +63,14 @@
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
 # define HIT_BOX		5.0
+# define VIEW_DIST		20.0
 # define LITTLE			0.00000000000012
 # define TRUE			1
 # define FALSE			0
 
 # ifdef __linux__
-#  define MOVE_SPEED	2.0
 
+#  define MOVE_SPEED	2.0
 #  define RUN_SPEED		3.0
 
 #  define ROT_SPEED		TO_RAD(1.5)
@@ -86,7 +87,7 @@
 
 # else
 #  define MOVE_SPEED	2.0
-#  define RUN_SPEED		6.0
+#  define RUN_SPEED		5.0
 #  define ROT_SPEED		TO_RAD(2.5)
 #  define ESC			53
 #  define KEY_A			0
