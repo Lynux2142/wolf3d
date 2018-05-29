@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 17:27:42 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/29 12:57:17 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,15 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 {
 	t_coord	p1;
 	t_coord	p2;
-	int		zoom;
 
-	zoom = 8;
-	p1.y = (y *= zoom);
-	p2.x = (x *= zoom) + zoom;
-	p2.y = y + zoom;
-	while (p1.y <= p2.y)
+	p1.y = (y *= (int)ZOOM);
+	p2.x = (x *= (int)ZOOM) + (int)ZOOM;
+	p2.y = y + (int)ZOOM;
+	while (++p1.y < p2.y)
 	{
 		p1.x = x;
-		while (p1.x <= p2.x)
-		{
-			ft_fill_pixel(ptr, p1.x, p1.y,
-			(p1.x == x || p1.x == p2.x || p1.y == y || p1.y == p2.y) ? B_G : c);
-			++p1.x;
-		}
-		++p1.y;
+		while (++p1.x < p2.x)
+			ft_fill_pixel(ptr, p1.x - 1, p1.y - 1, c);
 	}
 }
 
@@ -54,8 +47,8 @@ void		ft_print_map(t_img *ptr, char map[MAPY][MAPX])
 	int		x;
 	int		y;
 
-	y = -1;
 	ft_background_color(ptr);
+	y = -1;
 	while (++y < BUFF_SIZE)
 	{
 		x = -1;

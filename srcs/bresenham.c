@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:28:36 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/28 15:34:22 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/29 12:31:39 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	ft_fill_line(t_algo_brez algo, t_img *ptr, int col, t_player *p)
 			algo.cumul -= algo.da;
 			algo.b += algo.cptb;
 		}
-		if (VIEW_DIST < sqrtf(powf((double)algo.a - (p->x / 8.0), 2.0) +
-		powf((p->y / 8.0) - (double)algo.b, 2.0)))
+		if (VIEW_DIST < sqrtf(powf((double)algo.a - (p->x / ZOOM), 2.0) +
+		powf((p->y / ZOOM) - (double)algo.b, 2.0)))
 			break ;
 		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
@@ -44,8 +44,8 @@ static void	ft_fill_column(t_algo_brez algo, t_img *ptr, int col, t_player *p)
 			algo.cumul -= algo.db;
 			algo.a += algo.cpta;
 		}
-		if (VIEW_DIST < sqrtf(powf((double)algo.a - (p->x / 8.0), 2.0) +
-		powf((p->y / 8.0) - (double)algo.b, 2.0)))
+		if (VIEW_DIST < sqrtf(powf((double)algo.a - (p->x / ZOOM), 2.0) +
+		powf((p->y / ZOOM) - (double)algo.b, 2.0)))
 			break ;
 		ft_fill_pixel(ptr, algo.a, algo.b, col);
 		algo.i++;
@@ -56,10 +56,10 @@ void		ft_algo(t_img *ptr, t_ray ray, t_player *p, int col)
 {
 	t_algo_brez	algo;
 
-	algo.a = (int)(p->x / 8.0);
-	algo.b = (int)(p->y / 8.0);
-	algo.da = (int)((ray.x - p->x) / 8.0);
-	algo.db = (int)((ray.y - p->y) / 8.0);
+	algo.a = (int)(p->x / ZOOM);
+	algo.b = (int)(p->y / ZOOM);
+	algo.da = (int)((ray.x - p->x) / ZOOM);
+	algo.db = (int)((ray.y - p->y) / ZOOM);
 	algo.cpta = (algo.da > 0) ? 1 : -1;
 	algo.cptb = (algo.db > 0) ? 1 : -1;
 	algo.da = ft_abs(algo.da);
