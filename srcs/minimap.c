@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/29 15:32:24 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/29 15:39:23 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 	p1.y = (y *= (int)ZOOM);
 	p2.x = (x *= (int)ZOOM) + (int)ZOOM;
 	p2.y = y + (int)ZOOM;
-	while (++p1.y < p2.y)
+	while (p1.y <= p2.y)
 	{
 		p1.x = x;
-		while (++p1.x < p2.x)
-			ft_fill_pixel(ptr, p1.x, p1.y, c);
+		while (p1.x <= p2.x)
+		{
+			ft_fill_pixel(ptr, p1.x, p1.y,
+			(p1.x == x || p1.y == y || p1.x == p2.x || p1.y == p2.y) ? B_G : c);
+			++p1.x;
+		}
+		++p1.y;
 	}
 }
 
@@ -47,7 +52,6 @@ void		ft_print_map(t_img *ptr, char map[MAPY][MAPX])
 	int		x;
 	int		y;
 
-	ft_background_color(ptr);
 	y = -1;
 	while (++y < BUFF_SIZE)
 	{
