@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/29 12:57:17 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/29 15:32:24 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 	{
 		p1.x = x;
 		while (++p1.x < p2.x)
-			ft_fill_pixel(ptr, p1.x - 1, p1.y - 1, c);
+			ft_fill_pixel(ptr, p1.x, p1.y, c);
 	}
 }
 

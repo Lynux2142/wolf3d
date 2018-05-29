@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/29 12:30:53 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/29 15:27:25 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,33 +130,33 @@ typedef struct	s_parse
 
 typedef struct	s_ray
 {
-	double		x;
-	double		y;
+	double		dist;
 	double		fx;
 	double		fy;
 	double		xa;
 	double		ya;
 	double		dx;
 	double		dy;
-	double		dist;
+	double		x;
+	double		y;
 	int			hit;
 }				t_ray;
 
 typedef struct	s_raycast
 {
+	char		map[MAPY][MAPX];
 	t_ray		ray_h;
 	t_ray		ray_v;
 	t_ray		ray;
-	char		map[MAPY][MAPX];
 }				t_raycast;
 
 typedef struct	s_img
 {
-	void		*img;
 	char		*data;
-	int			sl;
+	void		*img;
 	int			endian;
 	int			bpp;
+	int			sl;
 }				t_img;
 
 typedef struct	s_mlx
@@ -169,43 +169,43 @@ typedef struct	s_mlx
 
 typedef struct	s_algo_brez
 {
+	int			cumul;
+	int			cpta;
+	int			cptb;
 	int			da;
 	int			db;
 	int			i;
-	int			cpta;
-	int			cptb;
-	int			cumul;
 	int			a;
 	int			b;
 }				t_algo_brez;
 
 typedef struct	s_all
 {
+	int			keys_tab[280];
 	t_raycast	rc;
 	t_player	p;
 	t_img		info;
 	t_img		fp;
 	t_mlx		ptr;
-	int			keys_tab[280];
 	double		a;
 }				t_all;
 
-void			ft_init_player(char map[MAPY][MAPX], t_player *p);
-void			ft_init_keys_tab(int (*keys_tab)[280]);
-void			ft_check_map(char *buff, char (*start)[2]);
-void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
-void			ft_free_map(char map[MAPY][MAPX]);
-void			ft_draw(t_all all, char *name);
-void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
-void			ft_background_color(t_img *ptr);
-void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
-void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
-int				ft_key_press(int key, t_all *all);
-int				ft_key_release(int key, t_all *all);
 void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
+void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
+void			ft_init_player(char map[MAPY][MAPX], t_player *p);
+void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
+void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
+void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
+int				ft_mouse(int key, int x, int y, t_all *all);
+void			ft_check_map(char *buff, char (*start)[2]);
+void			ft_init_keys_tab(int (*keys_tab)[280]);
+int				ft_key_release(int key, t_all *all);
+int				ft_key_press(int key, t_all *all);
+void			ft_free_map(char map[MAPY][MAPX]);
+void			ft_background_color(t_img *ptr);
+void			ft_draw(t_all all, char *name);
 void			ft_print_all(t_all *all);
 int				ft_movements(t_all *all);
-int				ft_mouse(int key, int x, int y, t_all *all);
 
 #endif
