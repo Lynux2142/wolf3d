@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/30 09:19:13 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 13:17:36 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
 # define HIT_BOX		5.0
-# define VIEW_DIST		40.0
+# define VIEW_DIST		20.0
 # define ZOOM			8.0
+# define P_SIZE			2.5
 # define LITTLE			0.00000000000012
 # define TRUE			1
 # define FALSE			0
@@ -201,6 +202,7 @@ int				ft_mouse(int key, int x, int y, t_all *all);
 void			ft_check_map(char *buff, char (*start)[2]);
 void			ft_init_keys_tab(int (*keys_tab)[280]);
 int				ft_key_release(int key, t_all *all);
+void			ft_perso(t_img *img, double x, double y);
 int				ft_key_press(int key, t_all *all);
 void			ft_free_map(char map[MAPY][MAPX]);
 void			ft_background_color(t_img *ptr);

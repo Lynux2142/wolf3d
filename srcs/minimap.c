@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/29 15:39:23 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 13:18:53 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,22 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 			++p1.x;
 		}
 		++p1.y;
+	}
+}
+
+void		ft_perso(t_img *ptr, double x, double y)
+{
+	t_fcoord	p1;
+	t_fcoord	p2;
+
+	p1.y = -P_SIZE;
+	p2.x = P_SIZE;
+	p2.y = P_SIZE;
+	while (++p1.y <= p2.y)
+	{
+		p1.x = -P_SIZE;
+		while (++p1.x <= p2.x)
+			ft_fill_pixel(ptr, x / ZOOM + p1.x, y / ZOOM + p1.y, RED);
 	}
 }
 

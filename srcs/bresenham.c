@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:28:36 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/29 12:31:39 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 11:58:14 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void		ft_algo(t_img *ptr, t_ray ray, t_player *p, int col)
 	algo.cptb = (algo.db > 0) ? 1 : -1;
 	algo.da = ft_abs(algo.da);
 	algo.db = ft_abs(algo.db);
-	algo.i = 1;
 	ft_fill_pixel(ptr, algo.a, algo.b, col);
+	algo.i = 1;
 	if (algo.da > algo.db)
 		ft_fill_line(algo, ptr, col, p);
 	else
