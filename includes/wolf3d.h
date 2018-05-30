@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/29 15:48:21 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 09:19:13 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define EAST			0.0
 # define EAST2			2.0 * M_PI
 # define HIT_BOX		5.0
-# define VIEW_DIST		20.0
+# define VIEW_DIST		40.0
 # define ZOOM			8.0
 # define LITTLE			0.00000000000012
 # define TRUE			1
