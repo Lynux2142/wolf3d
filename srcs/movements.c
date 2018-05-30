@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/30 15:19:47 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 15:21:47 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ int			ft_movements(t_all *all)
 	int		width;
 	int		height;
 
-	width = 80;
-	height = 80;
 	if (all->keys_tab[KEY_A] == TRUE)
 		ft_strafing(all, 1.0);
 	if (all->keys_tab[KEY_D] == TRUE)
