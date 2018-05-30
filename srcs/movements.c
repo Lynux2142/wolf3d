@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/30 15:21:47 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 15:28:38 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int			ft_movements(t_all *all)
 	ft_print_all(all);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
-	img = mlx_xpm_file_to_image(all->ptr.mlx, "./textures/bluestone.xpm", &width, &height);
+	img = mlx_xpm_file_to_image(all->ptr.mlx, "./textures/wood.xpm", &width, &height);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, img, 100, 300);
 	return (1);
 }
