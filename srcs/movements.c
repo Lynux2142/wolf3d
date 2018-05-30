@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/28 11:05:50 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/30 15:19:47 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,12 @@ static void	ft_teleport(t_all *all)
 
 int			ft_movements(t_all *all)
 {
+	void	*img;
+	int		width;
+	int		height;
+
+	width = 80;
+	height = 80;
 	if (all->keys_tab[KEY_A] == TRUE)
 		ft_strafing(all, 1.0);
 	if (all->keys_tab[KEY_D] == TRUE)
@@ -102,5 +108,7 @@ int			ft_movements(t_all *all)
 	ft_print_all(all);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
+	img = mlx_xpm_file_to_image(all->ptr.mlx, "./textures/bluestone.xpm", &width, &height);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, img, 100, 300);
 	return (1);
 }
