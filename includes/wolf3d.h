@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/30 13:17:36 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:41:56 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,9 +180,20 @@ typedef struct	s_algo_brez
 	int			b;
 }				t_algo_brez;
 
+typedef struct	s_textures
+{
+	int			width;
+	int			height;
+	t_img		img_w;
+	t_img		img_e;
+	t_img		img_n;
+	t_img		img_s;
+}				t_textures;
+
 typedef struct	s_all
 {
 	int			keys_tab[280];
+	t_textures	textures;
 	t_raycast	rc;
 	t_player	p;
 	t_img		info;
@@ -191,8 +202,9 @@ typedef struct	s_all
 	double		a;
 }				t_all;
 
+void			ft_init_textures(t_all *all, t_textures *textures);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a);
+void			ft_print_on_screen(t_all *all, int x, double a);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);

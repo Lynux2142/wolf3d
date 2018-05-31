@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 12:40:30 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/16 11:02:00 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/31 13:46:17 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_check_line_length(char *buff)
 {
 	if (ft_strlen(buff) != BUFF_SIZE)
-		ft_error("error: Wrong line length", 1, ft_puterror);
+		ft_error("error: Wrong line length", 12, ft_puterror);
 }
 
 static void	ft_check_start(char *buff, short i, char (*start)[2])

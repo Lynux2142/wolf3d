@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/30 12:58:35 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:55:35 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,35 @@ static int		ft_wall_height_on_screen(double dist)
 	return ((int)(ft_screen_range() * (CAM_HEIGHT) / dist));
 }
 
-void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a)
+void			ft_print_on_screen(t_all *all, int x, double a)
 {
 	int		i;
 	double	h;
 
 	i = -1;
-	h = ft_wall_height_on_screen(rc->ray.dist * cos(a));
+	h = ft_wall_height_on_screen(all->rc.ray.dist * cos(a));
+	while ((++i + (WINY / 2)) <= WINY)
+	{
+		if ((double)i >= h)
+		{
+			ft_fill_pixel(&all->fp, x, (WINY / 2) - i, TOP);
+			ft_fill_pixel(&all->fp, x, (WINY / 2) + i, BOTTOM);
+		}
+		else
+		{
+			ft_fill_pixel(&all->fp, x, (WINY / 2) + i, all->rc.ray.hit);
+			ft_fill_pixel(&all->fp, x, (WINY / 2) - i, all->rc.ray.hit);
+		}
+	}
+}
+/*
+void			ft_print_on_screen(t_all *all, int x, double a)
+{
+	int		i;
+	double	h;
+
+	i = -1;
+	h = ft_wall_height_on_screen(all->rc.ray.dist * cos(a));
 	while ((++i + (WINY / 2)) <= WINY)
 	{
 		if ((double)i >= h)
@@ -42,4 +64,4 @@ void			ft_print_on_screen(t_raycast *rc, t_img *fp, int x, double a)
 			ft_fill_pixel(fp, x, (WINY / 2) - i, rc->ray.hit);
 		}
 	}
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:16:27 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/21 11:19:26 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:56:46 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <errno.h>
-#include <math.h>
+# include <math.h>
 
 # define BUFF_SIZE 32
 # define GNL_CAR '\n'

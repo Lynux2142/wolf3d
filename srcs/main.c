@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:16:31 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/25 15:27:44 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:09:47 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int			main(int ac, char **av)
 	if (ac != 2)
 		ft_error("usage: ./wolf3d [map_name]", 1, ft_putendl);
 	ft_read_file(av[1], &all.rc.map);
+	ft_init_textures(&all, &all.textures);
 	ft_init_player(all.rc.map, &all.p);
 	ft_init_keys_tab(&all.keys_tab);
 	ft_draw(all, av[1]);
