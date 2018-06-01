@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 15:07:27 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/01 15:56:11 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 # define INFOY			WINY
 # define FPX			960
 # define FPY			600
-# define TEXT_NORTH		"./textures/wood.xpm"
-# define TEXT_SOUTH		"./textures/bluestone.xpm"
-# define TEXT_EAST		"./textures/mossy.xpm"
-# define TEXT_WEST		"./textures/eagle.xpm"
+# define TEXT_NORTH		"./textures/wood1.xpm"
+# define TEXT_SOUTH		"./textures/stone1.xpm"
+# define TEXT_EAST		"./textures/metal1.xpm"
+# define TEXT_WEST		"./textures/ice1.xpm"
 # define WINX			FPX + INFOX
 # define WINY			FPY
 # define BLOCK_SIZE		64.0
