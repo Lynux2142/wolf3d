@@ -6,13 +6,13 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/01 10:14:42 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/06/01 11:58:18 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/01 14:28:24 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_rgba(int r, int g, int b, int a)
+int	ft_rgba(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-	return ((a << 24) | (r << 16) | (g << 8) | b);
+	return ((int)(a << 24) | (int)(r << 16) | (int)(g << 8) | (int)b);
 }

@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 13:32:23 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/01 15:07:27 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@
 # define INFOY			WINY
 # define FPX			960
 # define FPY			600
-//# define FPX			800
-//# define FPY			600
+# define TEXT_NORTH		"./textures/wood.xpm"
+# define TEXT_SOUTH		"./textures/bluestone.xpm"
+# define TEXT_EAST		"./textures/mossy.xpm"
+# define TEXT_WEST		"./textures/eagle.xpm"
 # define WINX			FPX + INFOX
 # define WINY			FPY
 # define BLOCK_SIZE		64.0
@@ -64,7 +66,7 @@
 # define EAST2			2.0 * M_PI
 # define HIT_BOX		5.0
 # define VIEW_DIST		20.0
-# define ZOOM			8.0
+# define ZOOM			(double)(((double)MAPX * BLOCK_SIZE) / (double)INFOX)
 # define P_SIZE			2.5
 # define LITTLE			0.00000000000012
 # define TRUE			1

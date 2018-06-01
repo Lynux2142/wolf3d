@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/30 13:18:53 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/01 15:05:24 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	ft_rect(t_img *ptr, int x, int y, int c)
 	t_coord	p1;
 	t_coord	p2;
 
-	p1.y = (y *= (int)ZOOM);
-	p2.x = (x *= (int)ZOOM) + (int)ZOOM;
-	p2.y = y + (int)ZOOM;
+	p1.y = (y *= (BLOCK_SIZE / ZOOM));
+	p2.x = (x *= (BLOCK_SIZE / ZOOM)) + (BLOCK_SIZE / ZOOM);
+	p2.y = y + (BLOCK_SIZE / ZOOM);
 	while (p1.y <= p2.y)
 	{
 		p1.x = x;

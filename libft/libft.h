@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:16:27 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 10:19:26 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/01 14:32:11 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack,
-		const char *needle, size_t len);
+					const char *needle, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strcspn(const char *s1, const char *s2);
@@ -133,5 +133,6 @@ void				ft_error(char *str, int error, void (*f)(const char *));
 double				ft_roundmsup(double nb, int mult);
 double				ft_roundminf(double nb, int mult);
 
-int					ft_rgba(int r, int g, int b, int a);
+int					ft_rgba(unsigned char r, unsigned char g,
+					unsigned char b, unsigned char a);
 #endif
