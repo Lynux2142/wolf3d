@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/31 16:41:56 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/01 11:12:42 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ typedef struct	s_ray
 	double		x;
 	double		y;
 	int			hit;
+	char		*txtrs;
 }				t_ray;
 
 typedef struct	s_raycast
@@ -200,6 +201,7 @@ typedef struct	s_all
 	t_img		fp;
 	t_mlx		ptr;
 	double		a;
+	int			txtrs;
 }				t_all;
 
 void			ft_init_textures(t_all *all, t_textures *textures);

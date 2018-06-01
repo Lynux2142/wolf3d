@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/05/31 16:18:34 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/01 12:00:34 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,6 @@ void		ft_fill_pixel(t_img *ptr, int x, int y, int col)
 	}
 }
 
-static void	*ft_test_thread(void *ptr)
-{
-	t_all *all;
-
-	all = (t_all *)ptr;
-	ft_wall_dist(&all->info, &all->rc, &all->p, all->a);
-	return (NULL);
-}
-
 void		ft_print_all(t_all *all)
 {
 	int			i;
@@ -62,7 +53,7 @@ void		ft_print_all(t_all *all)
 	i = -1;
 	while (++i < FPX)
 	{
-		ft_test_thread(all);
+		ft_wall_dist(&all->info, &all->rc, &all->p, all->a);
 		ft_print_on_screen(all, i, lens);
 		lens -= TO_RAD(RAY_ANGLE) * all->keys_tab[KEY_H];
 		all->a -= TO_RAD(RAY_ANGLE);
