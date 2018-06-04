@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/06/04 14:19:28 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/04 17:23:54 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	ft_refresh_images(t_all *all)
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->sprites.knife,
-		INFOX - 290 + FPX / 2, FPY - 196);
+		INFOX - 0 + FPX / 2, FPY - 239);
 	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->sprites.wolf, 3,
 		300);
 }

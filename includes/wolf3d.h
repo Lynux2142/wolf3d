@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/04 14:26:52 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/04 18:21:59 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define TEXT_SOUTH		"./textures/stone1.xpm"
 # define TEXT_EAST		"./textures/metal1.xpm"
 # define TEXT_WEST		"./textures/ice1.xpm"
-# define SPR_KNIFE		"./sprites/knife1.xpm"
+# define SPR_KNIFE		"./sprites/weapon1.xpm"
 # define SPR_WOLF		"./sprites/wolf1.xpm"
 # define SPR_PAPYRUS	"./sprites/papyrus1.xpm"
 # define WINX			FPX + INFOX
