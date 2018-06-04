@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 12:59:44 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/06/01 14:21:54 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/04 14:31:34 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void			ft_print_on_screen(t_all *all, int x, double lens)
 		}
 		else
 		{
-			if (all->txtrs == TRUE)
+			if (all->keys_tab[KEY_T] == TRUE)
 				ft_print_textures(all, x, i, h);
-			else if (all->txtrs == FALSE)
+			else if (all->keys_tab[KEY_T] == FALSE)
 			{
 				ft_fill_pixel(&all->fp, x, (WINY / 2) + i, all->rc.ray.hit);
 				ft_fill_pixel(&all->fp, x, (WINY / 2) - i, all->rc.ray.hit);

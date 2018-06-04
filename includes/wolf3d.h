@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 15:56:11 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/04 14:26:52 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define TEXT_SOUTH		"./textures/stone1.xpm"
 # define TEXT_EAST		"./textures/metal1.xpm"
 # define TEXT_WEST		"./textures/ice1.xpm"
+# define SPR_KNIFE		"./sprites/knife1.xpm"
+# define SPR_WOLF		"./sprites/wolf1.xpm"
+# define SPR_PAPYRUS	"./sprites/papyrus1.xpm"
 # define WINX			FPX + INFOX
 # define WINY			FPY
 # define BLOCK_SIZE		64.0
@@ -44,6 +47,7 @@
 # define TP_S			'3'
 # define TP_E			'4'
 # define TO_MAP(x)		(int)x / 64
+# define ALPHA			0xFF000000
 # define BLACK			0
 # define WHITE			0xFFFFFF
 # define RED			0xFF0000
@@ -87,6 +91,7 @@
 #  define KEY_Q			113
 #  define KEY_E			101
 
+#  define KEY_T			14
 #  define KEY_SHIFT		257
 
 # else
@@ -101,6 +106,7 @@
 #  define KEY_H			4
 #  define KEY_Q			12
 #  define KEY_E			14
+#  define KEY_T			17
 #  define KEY_SHIFT		257
 # endif
 
@@ -193,20 +199,30 @@ typedef struct	s_textures
 	t_img		img_s;
 }				t_textures;
 
+typedef struct	s_sprites
+{
+	int			width;
+	int			height;
+	void		*papyrus;
+	void		*knife;
+	void		*wolf;
+}				t_sprites;
+
 typedef struct	s_all
 {
 	int			keys_tab[280];
 	t_textures	textures;
+	t_sprites	sprites;
 	t_raycast	rc;
 	t_player	p;
 	t_img		info;
 	t_img		fp;
 	t_mlx		ptr;
 	double		a;
-	int			txtrs;
 }				t_all;
 
 void			ft_init_textures(t_all *all, t_textures *textures);
+void			ft_init_mlx(t_all *all, char *title);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_print_on_screen(t_all *all, int x, double a);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
@@ -221,7 +237,6 @@ int				ft_key_release(int key, t_all *all);
 void			ft_perso(t_img *img, double x, double y);
 int				ft_key_press(int key, t_all *all);
 void			ft_free_map(char map[MAPY][MAPX]);
-void			ft_background_color(t_img *ptr);
 void			ft_draw(t_all all, char *name);
 void			ft_print_all(t_all *all);
 int				ft_movements(t_all *all);

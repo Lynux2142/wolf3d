@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/25 14:15:27 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/04 14:42:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_key_press(int key, t_all *all)
 {
-	if (key == KEY_H)
-		all->keys_tab[KEY_H] = (all->keys_tab[KEY_H] == FALSE) ? TRUE : FALSE;
+	if (key == KEY_H || key == KEY_T)
+		all->keys_tab[key] = (all->keys_tab[key] == FALSE) ? TRUE : FALSE;
 	else
 		all->keys_tab[key] = 1;
 	if (key == ESC)
@@ -25,7 +25,7 @@ int		ft_key_press(int key, t_all *all)
 
 int		ft_key_release(int key, t_all *all)
 {
-	if (key != KEY_H)
+	if (key != KEY_H && key != KEY_T)
 		all->keys_tab[key] = 0;
 	return (1);
 }

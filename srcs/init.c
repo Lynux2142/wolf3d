@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 14:36:23 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/04 14:30:45 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_init_keys_tab(int (*keys_tab)[280])
 	i = -1;
 	while (++i < 280)
 		keys_tab[0][i] = 0;
+	keys_tab[0][KEY_H] = 1;
 }
 
 void	ft_init_textures(t_all *all, t_textures *textures)
@@ -64,5 +65,23 @@ void	ft_init_textures(t_all *all, t_textures *textures)
 		&textures->img_e.bpp, &textures->img_e.sl, &textures->img_e.endian);
 	textures->img_w.data = mlx_get_data_addr(textures->img_w.img,
 		&textures->img_w.bpp, &textures->img_w.sl, &textures->img_w.endian);
-	all->txtrs = TRUE;
+}
+
+void	ft_init_mlx(t_all *all, char *title)
+{
+	all->ptr.mlx = mlx_init();
+	all->ptr.win = mlx_new_window(all->ptr.mlx, WINX, WINY, title);
+	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
+		&all->sprites.width, &all->sprites.height);
+	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
+		&all->sprites.width, &all->sprites.height);
+	all->fp.img = mlx_new_image(all->ptr.mlx, FPX, FPY);
+	all->sprites.knife = mlx_xpm_file_to_image(all->ptr.mlx, SPR_KNIFE,
+		&all->sprites.width, &all->sprites.height);
+	all->sprites.wolf = mlx_xpm_file_to_image(all->ptr.mlx, SPR_WOLF,
+		&all->sprites.width, &all->sprites.height);
+	all->info.data = mlx_get_data_addr(all->info.img, &all->info.bpp,
+		&all->info.sl, &all->info.endian);
+	all->fp.data = mlx_get_data_addr(all->fp.img, &all->fp.bpp, &all->fp.sl,
+		&all->fp.endian);
 }

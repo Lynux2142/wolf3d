@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/31 16:55:03 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/04 14:19:28 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,16 @@ static void	ft_teleport(t_all *all)
 	}
 }
 
+static void	ft_refresh_images(t_all *all)
+{
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->sprites.knife,
+		INFOX - 290 + FPX / 2, FPY - 196);
+	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->sprites.wolf, 3,
+		300);
+}
+
 int			ft_movements(t_all *all)
 {
 	if (all->keys_tab[KEY_A] == TRUE)
@@ -98,9 +108,9 @@ int			ft_movements(t_all *all)
 		all->p.a -= ROT_SPEED;
 	ft_teleport(all);
 	mlx_destroy_image(all->ptr.mlx, all->info.img);
-	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
+	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
+		&all->sprites.width, &all->sprites.height);
 	ft_print_all(all);
-	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->info.img, 0, 0);
-	mlx_put_image_to_window(all->ptr.mlx, all->ptr.win, all->fp.img, INFOX, 0);
+	ft_refresh_images(all);
 	return (1);
 }
