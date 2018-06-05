@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/29 12:40:30 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/06/05 13:36:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/05 15:26:47 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static void	ft_check_start(char *buff, short i, char (*start)[2])
 		if (buff[i] == '4')
 			++(*start[1]);
 		if (*start[0] > 1)
-			ft_error("error: More than one start", 2, ft_puterror);
+			ft_error("error: More than one departure area", 2, ft_puterror);
 		if (*start[1] > 1)
-			ft_error("error: More than one TP", 3, ft_puterror);
+			ft_error("error: More than one exit teleportation", 3, ft_puterror);
 	}
 }
 

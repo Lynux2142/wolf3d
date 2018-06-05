@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 11:55:11 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/05 11:57:33 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 16:03:00 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ void		ft_draw(t_all all, char *name)
 {
 	char	*title;
 
-	title = ft_strjoin("wolf3d - ", name + 5);
+	title = ft_strjoin("wolf3d - ", name);
 	ft_init_mlx(&all, title);
+	free(title);
 	mlx_hook(all.ptr.win, 2, (1L << 0), ft_key_press, &all);
 	mlx_hook(all.ptr.win, 3, (1L << 1), ft_key_release, &all);
 	mlx_hook(all.ptr.win, 4, (1L << 2), ft_button_press, &all);

@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/16 12:18:12 by lguiller          #+#    #+#              #
-#    Updated: 2018/06/05 10:18:53 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/06/05 15:08:45 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS_DIR		= srcs/
 OBJS_DIR		= objs/
 LIBFT			= libft/libft.a
 MINILIBX		= $(MLX_DIR)/libmlx.a
-FLAGS			= -Wall -Wextra -Werror -g
+FLAGS			= -Wall -Wextra -Werror
 
 ifeq ($(OPE_SYS), Linux)
 	INCLUDES	= -I includes -I libft -I minilibx -I /usr/include
