@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/05 12:07:27 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 12:20:41 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@
 # define FALSE			0
 
 # ifdef __linux__
-
 #  define MOVE_SPEED	2.0
 #  define RUN_SPEED		3.0
 #  define ROT_SPEED		1.5
@@ -89,7 +88,6 @@
 #  define KEY_T			116
 #  define KEY_SHIFT		65505
 #  define KEYS_TAB_SIZE	65600
-
 # else
 #  define MOVE_SPEED	2.0
 #  define RUN_SPEED		5.0
