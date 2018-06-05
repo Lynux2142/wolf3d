@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/05 12:08:23 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 13:37:07 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_init_textures(t_all *all, t_textures *textures)
 		TEXT_WEST, &textures->width, &textures->height);
 	if (textures->img_n.img == NULL || textures->img_s.img == NULL
 		|| textures->img_e.img == NULL || textures->img_w.img == NULL)
-		ft_error("error", 8, perror);
+		ft_error("error", 11, perror);
 	textures->img_n.data = mlx_get_data_addr(textures->img_n.img,
 		&textures->img_n.bpp, &textures->img_n.sl, &textures->img_n.endian);
 	textures->img_s.data = mlx_get_data_addr(textures->img_s.img,
