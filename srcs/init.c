@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/04 14:30:45 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 12:08:23 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ void	ft_init_player(char map[MAPY][MAPX], t_player *p)
 			{
 				p->x = (double)x * BLOCK_SIZE + (BLOCK_SIZE / 2.0);
 				p->y = (double)y * BLOCK_SIZE + (BLOCK_SIZE / 2.0);
-				p->a = TO_RAD(180.0);
+				p->a = ft_rad(180.0);
 				break ;
 			}
 		}
 	}
 }
 
-void	ft_init_keys_tab(int (*keys_tab)[280])
+void	ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE])
 {
 	int i;
 
 	i = -1;
-	while (++i < 280)
+	while (++i < KEYS_TAB_SIZE)
 		keys_tab[0][i] = 0;
 	keys_tab[0][KEY_H] = 1;
 }
@@ -71,8 +71,6 @@ void	ft_init_mlx(t_all *all, char *title)
 {
 	all->ptr.mlx = mlx_init();
 	all->ptr.win = mlx_new_window(all->ptr.mlx, WINX, WINY, title);
-	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
-		&all->sprites.width, &all->sprites.height);
 	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
 		&all->sprites.width, &all->sprites.height);
 	all->fp.img = mlx_new_image(all->ptr.mlx, FPX, FPY);

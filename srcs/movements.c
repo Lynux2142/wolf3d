@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:24:19 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/06/04 17:23:54 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 12:02:33 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ int			ft_movements(t_all *all)
 	if (all->keys_tab[KEY_S] == TRUE)
 		ft_moving(all, -1.0);
 	if (all->keys_tab[KEY_Q] == TRUE)
-		all->p.a += ROT_SPEED;
+		all->p.a += ft_rad(ROT_SPEED);
 	if (all->keys_tab[KEY_E] == TRUE)
-		all->p.a -= ROT_SPEED;
+		all->p.a -= ft_rad(ROT_SPEED);
 	ft_teleport(all);
 	mlx_destroy_image(all->ptr.mlx, all->info.img);
 	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,

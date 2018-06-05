@@ -6,7 +6,7 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:16:27 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/01 14:32:11 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/05 11:55:08 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,9 @@ void				ft_error(char *str, int error, void (*f)(const char *));
 
 double				ft_roundmsup(double nb, int mult);
 double				ft_roundminf(double nb, int mult);
+double				ft_rad(double x);
 
 int					ft_rgba(unsigned char r, unsigned char g,
 					unsigned char b, unsigned char a);
+
 #endif

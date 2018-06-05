@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_infos_by_mouse.c                               :+:      :+:    :+:   */
+/*   ft_rad.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 09:23:30 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/05/22 09:04:25 by lguiller         ###   ########.fr       */
+/*   Created: 2018/06/05 11:48:09 by bede-fre          #+#    #+#             */
+/*   Updated: 2018/06/05 12:09:43 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "libft.h"
 
-int			ft_mouse(int key, int x, int y, t_all *all)
+double	ft_rad(double x)
 {
-	double a;
-
-	(void)y;
-	a = all->p.a - TO_RAD(((x - INFOX - 1) - (FPX / 2) - 1) * RAY_ANGLE);
-	if (key == 1)
-	{
-		all->p.ray_infos = 1;
-		ft_wall_dist(&all->info, &all->rc, &all->p, a);
-		all->p.ray_infos = 0;
-	}
-	return (0);
+	return (x * M_PI / 180.0);
 }

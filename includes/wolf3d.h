@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/04 18:21:59 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/06/05 12:07:27 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <pthread.h>
 
 # define MAPX			32
-# define MAPY			32
+# define MAPY			MAPX
 # define INFOX			256
 # define INFOY			WINY
 # define FPX			960
@@ -37,8 +37,6 @@
 # define BLOCK_SIZE		64.0
 # define CAM_HEIGHT		BLOCK_SIZE / 2.0
 # define FOV			60.0
-# define TO_RAD(x)		x * M_PI / 180.0
-# define TO_DEG(x)		x / (M_PI / 180.0)
 # define RAY_ANGLE		FOV / (double)FPX
 # define START			's'
 # define FLOOR			' '
@@ -58,7 +56,6 @@
 # define YELLOW			0xFFFF00
 # define TOP			0x87CEFA
 # define BOTTOM			0xFFDA8C
-# define B_G			0x5d6d7e
 # define N_W			0x940602
 # define S_W			0x50468C
 # define E_W			0x769600
@@ -80,8 +77,7 @@
 
 #  define MOVE_SPEED	2.0
 #  define RUN_SPEED		3.0
-
-#  define ROT_SPEED		TO_RAD(1.5)
+#  define ROT_SPEED		1.5
 #  define ESC			65307
 #  define KEY_A			97
 #  define KEY_D			100
@@ -90,14 +86,14 @@
 #  define KEY_H			104
 #  define KEY_Q			113
 #  define KEY_E			101
-
-#  define KEY_T			14
-#  define KEY_SHIFT		257
+#  define KEY_T			116
+#  define KEY_SHIFT		65505
+#  define KEYS_TAB_SIZE	65600
 
 # else
 #  define MOVE_SPEED	2.0
 #  define RUN_SPEED		5.0
-#  define ROT_SPEED		TO_RAD(2.5)
+#  define ROT_SPEED		2.5
 #  define ESC			53
 #  define KEY_A			0
 #  define KEY_D			2
@@ -108,6 +104,7 @@
 #  define KEY_E			14
 #  define KEY_T			17
 #  define KEY_SHIFT		257
+#  define KEYS_TAB_SIZE	280
 # endif
 
 typedef struct	s_coord
@@ -210,7 +207,7 @@ typedef struct	s_sprites
 
 typedef struct	s_all
 {
-	int			keys_tab[280];
+	int			keys_tab[KEYS_TAB_SIZE];
 	t_textures	textures;
 	t_sprites	sprites;
 	t_raycast	rc;
@@ -221,24 +218,24 @@ typedef struct	s_all
 	double		a;
 }				t_all;
 
-void			ft_init_textures(t_all *all, t_textures *textures);
-void			ft_init_mlx(t_all *all, char *title);
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
-void			ft_print_on_screen(t_all *all, int x, double a);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
+void			ft_init_textures(t_all *all, t_textures *textures);
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
+void			ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE]);
 void			ft_fill_pixel(t_img *ptr, int x, int y, int col);
+void			ft_print_on_screen(t_all *all, int x, double a);
 void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
-int				ft_mouse(int key, int x, int y, t_all *all);
 void			ft_check_map(char *buff, char (*start)[2]);
-void			ft_init_keys_tab(int (*keys_tab)[280]);
-int				ft_key_release(int key, t_all *all);
 void			ft_perso(t_img *img, double x, double y);
-int				ft_key_press(int key, t_all *all);
+void			ft_init_mlx(t_all *all, char *title);
 void			ft_free_map(char map[MAPY][MAPX]);
 void			ft_draw(t_all all, char *name);
 void			ft_print_all(t_all *all);
+int				ft_button_press(int key, int x, int y, t_all *all);
+int				ft_key_release(int key, t_all *all);
+int				ft_key_press(int key, t_all *all);
 int				ft_movements(t_all *all);
 
 #endif
