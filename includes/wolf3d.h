@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/05 12:20:41 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/06 13:07:45 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "mlx.h"
 # include <math.h>
 # include <limits.h>
-# include <pthread.h>
 
 # define MAPX			32
 # define MAPY			MAPX
