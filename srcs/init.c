@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/13 10:50:13 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/13 11:46:00 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void	ft_init_player(char map[MAPY][MAPX], t_player *p)
+void		ft_init_player(char map[MAPY][MAPX], t_player *p)
 {
 	int	x;
 	int	y;
@@ -34,7 +34,7 @@ void	ft_init_player(char map[MAPY][MAPX], t_player *p)
 	}
 }
 
-void	ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE])
+void		ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE])
 {
 	int i;
 
@@ -44,7 +44,7 @@ void	ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE])
 	keys_tab[0][KEY_H] = 1;
 }
 
-void	ft_init_textures(t_all *all, t_textures *textures)
+static void	ft_init_textures(t_all *all, t_textures *textures)
 {
 	textures->img_n.img = mlx_xpm_file_to_image(all->ptr.mlx,
 		TEXT_NORTH, &textures->width, &textures->height);
@@ -67,7 +67,7 @@ void	ft_init_textures(t_all *all, t_textures *textures)
 		&textures->img_w.bpp, &textures->img_w.sl, &textures->img_w.endian);
 }
 
-void	ft_init_mlx(t_all *all, char *title)
+void		ft_init_mlx(t_all *all, char *title)
 {
 	all->ptr.mlx = mlx_init();
 	all->ptr.win = mlx_new_window(all->ptr.mlx, WINX, WINY, title);
