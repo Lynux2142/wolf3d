@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:22:58 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/05 13:37:07 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/13 10:50:13 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ void	ft_init_mlx(t_all *all, char *title)
 		&all->info.sl, &all->info.endian);
 	all->fp.data = mlx_get_data_addr(all->fp.img, &all->fp.bpp, &all->fp.sl,
 		&all->fp.endian);
+	ft_init_textures(all, &all->textures);
 }

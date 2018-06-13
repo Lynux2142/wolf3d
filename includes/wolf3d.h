@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/06 13:07:45 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/13 10:49:55 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,6 @@ typedef struct	s_all
 
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
-void			ft_init_textures(t_all *all, t_textures *textures);
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
 void			ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE]);
