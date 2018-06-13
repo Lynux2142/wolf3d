@@ -71,6 +71,7 @@ void	ft_init_mlx(t_all *all, char *title)
 {
 	all->ptr.mlx = mlx_init();
 	all->ptr.win = mlx_new_window(all->ptr.mlx, WINX, WINY, title);
+	all->info.img = mlx_new_image(all->ptr.mlx, INFOX, INFOY);
 	all->info.img = mlx_xpm_file_to_image(all->ptr.mlx, SPR_PAPYRUS,
 		&all->sprites.width, &all->sprites.height);
 	all->fp.img = mlx_new_image(all->ptr.mlx, FPX, FPY);
