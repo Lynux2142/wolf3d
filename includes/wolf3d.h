@@ -6,7 +6,7 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:05:59 by lguiller          #+#    #+#             */
-/*   Updated: 2018/06/13 10:49:55 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/06/13 11:42:11 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,22 +118,24 @@ typedef struct	s_fcoord
 
 typedef struct	s_player
 {
+	int			ray_infos;
 	double		x;
 	double		y;
 	double		a;
-	int			ray_infos;
 }				t_player;
 
 typedef struct	s_parse
 {
-	short		i;
 	char		*buff;
 	char		fd;
+	short		i;
 }				t_parse;
 
 typedef struct	s_ray
 {
+	char		*txtrs;
 	double		dist;
+	int			hit;
 	double		fx;
 	double		fy;
 	double		xa;
@@ -142,8 +144,6 @@ typedef struct	s_ray
 	double		dy;
 	double		x;
 	double		y;
-	int			hit;
-	char		*txtrs;
 }				t_ray;
 
 typedef struct	s_raycast
@@ -156,9 +156,9 @@ typedef struct	s_raycast
 
 typedef struct	s_img
 {
+	int			endian;
 	char		*data;
 	void		*img;
-	int			endian;
 	int			bpp;
 	int			sl;
 }				t_img;
@@ -185,8 +185,8 @@ typedef struct	s_algo_brez
 
 typedef struct	s_textures
 {
-	int			width;
 	int			height;
+	int			width;
 	t_img		img_w;
 	t_img		img_e;
 	t_img		img_n;
@@ -195,11 +195,11 @@ typedef struct	s_textures
 
 typedef struct	s_sprites
 {
-	int			width;
-	int			height;
 	void		*papyrus;
 	void		*knife;
+	int			height;
 	void		*wolf;
+	int			width;
 }				t_sprites;
 
 typedef struct	s_all
@@ -207,16 +207,17 @@ typedef struct	s_all
 	int			keys_tab[KEYS_TAB_SIZE];
 	t_textures	textures;
 	t_sprites	sprites;
+	t_img		info;
+	t_mlx		ptr;
+	t_img		fp;
 	t_raycast	rc;
 	t_player	p;
-	t_img		info;
-	t_img		fp;
-	t_mlx		ptr;
 	double		a;
 }				t_all;
 
 void			ft_wall_dist(t_img *info, t_raycast *rc, t_player *p, double a);
 void			ft_algo(t_img *ptr, t_ray ray, t_player *p, int col);
+int				ft_button_press(int key, int x, int y, t_all *all);
 void			ft_init_player(char map[MAPY][MAPX], t_player *p);
 void			ft_read_file(char *name, char (*map)[MAPY][MAPX]);
 void			ft_init_keys_tab(int (*keys_tab)[KEYS_TAB_SIZE]);
@@ -226,12 +227,11 @@ void			ft_print_map(t_img *ptr, char map[MAPY][MAPX]);
 void			ft_check_map(char *buff, char (*start)[2]);
 void			ft_perso(t_img *img, double x, double y);
 void			ft_init_mlx(t_all *all, char *title);
+int				ft_key_release(int key, t_all *all);
 void			ft_free_map(char map[MAPY][MAPX]);
+int				ft_key_press(int key, t_all *all);
 void			ft_draw(t_all all, char *name);
 void			ft_print_all(t_all *all);
-int				ft_button_press(int key, int x, int y, t_all *all);
-int				ft_key_release(int key, t_all *all);
-int				ft_key_press(int key, t_all *all);
 int				ft_movements(t_all *all);
 
 #endif
