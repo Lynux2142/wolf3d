@@ -44,4 +44,6 @@ apt-get install libx11-dev libxext-dev -y
 
 * 't' = activer / desactiver les textures
 
+* 'left clic' = afficher la distace du mur pointe
+
 * 'esc' = quitter
